@@ -1,0 +1,94 @@
+ body{
+    padding: 0;
+    margin: 0;
+    background-image: url(./imgs/yoru_login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+} 
+
+.caixa_login{
+    width: 27vw;
+    height: 65vh;
+    background-color: rgba(0, 0, 0, 0.425);
+    margin-left: 6.5%;
+    margin-top: 4%;
+    border: 2px solid #000ba1;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa_login h1{
+    color: #000ba1;
+    margin-top: -14%;
+    margin-left: 25%;
+    margin-bottom: 8.5%;
+}
+
+form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #000ba1;
+}
+
+input {
+    width: 67%;
+    height: 7.5%;
+    margin-left: 14.5%;
+    border: 3px solid #000ba1;
+    border-radius: 10px;
+    color: #000ba1;
+    outline: 0;
+    font-weight: bold;
+    padding-left: 3%;
+}
+
+
+label {
+    margin-left: 42%;
+    margin-bottom:3.5%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+#input_email::placeholder {
+    color: #000ba1;
+    padding: 11%;    
+}
+
+#input_senha::placeholder {
+    color: #000ba1;
+    padding: 35%;
+}
+
+.logo_valorant{
+    position: absolute;
+    width: 8.5%;
+    left: 16%;
+    top:6%;
+}
+
+button {
+    color: #000ba1;
+    transition: 0.5s;
+    width: 55%;
+    height: 8%;
+    margin-top: 3%;
+    margin-left: 22.5%;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+    font-family: monospace;
+}
+
+button:hover{
+    background-color: #000ba1;
+    color: black;
+    transition:0.5s;
+}
