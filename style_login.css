@@ -10,7 +10,7 @@
 .caixa_login{
     width: 27vw;
     height: 65vh;
-    background-color: rgba(0, 0, 0, 0.425);
+    background-color: rgba(0, 0, 0, 0.568);
     margin-left: 6.5%;
     margin-top: 4%;
     border: 2px solid #000ba1;
@@ -18,12 +18,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: #00ccff 3px 3px 30px 5px;
 }
 
 .caixa_login h1{
-    color: #000ba1;
+    font-family: monospace;
+    color: #ffffff;
     margin-top: -14%;
-    margin-left: 25%;
+    margin-left: 28%;
     margin-bottom: 8.5%;
 }
 
@@ -45,15 +47,17 @@ input {
     color: #000ba1;
     outline: 0;
     font-weight: bold;
-    padding-left: 3%;
+    padding-left: 5%;
 }
 
 
 label {
+    color: white;
     margin-left: 42%;
     margin-bottom:3.5%;
     font-size: 25px;
     font-weight: bold;
+    font-family: monospace;
 }
 
 
@@ -85,10 +89,34 @@ button {
     background-color: rgba(0, 0, 0, 0.712);
     color: white;
     font-family: monospace;
+    transform: scale(1.1);
+    border: #000ba1 solid 2px;
+    box-shadow: 2px 0.75px 2.8px 0.5px rgb(0, 174, 255);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 button:hover{
     background-color: #000ba1;
-    color: black;
-    transition:0.5s;
+    color: rgb(255, 255, 255);
+    transition:1s;
+    border-radius: 30px;
+    transform: scale(1.1);
+    font-family: monospace;
+   
+}
+
+.frase_final {
+    position: absolute;
+    color:white;
+    top: 65%;
+    left: 9.5%;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: #00ccff;
 }
