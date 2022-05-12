@@ -4,7 +4,7 @@
     background-image: url(../imgs/yoru.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    
+    transition: 1s;
 } 
 
 .caixa_login{
@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: #00ccff 3px 3px 30px 5px;
+    transition: 1s;
 }
 
 .sub_container{
@@ -70,12 +71,12 @@ label {
 
 
 #input_email::placeholder {
-    color: #000ba1;
+    color: #000000;
     padding: 11%;    
 }
 
 #input_senha::placeholder {
-    color: #000ba1;
+    color: #000000;
     padding: 35%;
 }
 
@@ -83,35 +84,35 @@ label {
     position: absolute;
     width: 8.5%;
     left: 16%;
-    top:6%;
+    top:3%;
+
 }
 
+
+
 button {
-    color: #000ba1;
+   
     transition: 0.5s;
     width: 55%;
     height: 8%;
     margin-top: 3%;
-    
-    background-color: rgba(0, 0, 0, 0.712);
+    background-color: #000ba1;
     color: white;
     font-family: monospace;
     transform: scale(1.1);
-    border: #000ba1 solid 2px;
-    box-shadow: 2px 0.75px 2.8px 0.5px rgb(0, 174, 255);
+    border: #00ccff solid 2px;
+    box-shadow: 3px 3px 30px 5px #00aeff;
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
 }
 
-button:hover{
-    background-color: #000ba1;
-    color: rgb(255, 255, 255);
+ #botao:hover{
     transition:1s;
-    border-radius: 30px;
+    border-radius: 50px;
     transform: scale(1.1);
     font-family: monospace;
-   
+    
 }
 
 .frase_final {
@@ -119,11 +120,12 @@ button:hover{
     /* position: absolute;
     top: 65%;
     left: 9.5%;
-     */font-size: 25px;
+    */font-size: 25px;
     text-decoration: none;
 }
 
 a{
-    text-decoration: none;
-    color: #00ccff;
+    
+      color: #bbbbbb;  
+    
 }
