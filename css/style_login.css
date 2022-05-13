@@ -57,6 +57,7 @@ input {
     outline: 0;
     font-weight: bold;
     padding-left: 5%;
+    
 }
 
 
@@ -128,4 +129,8 @@ a{
     
       color: #bbbbbb;  
     
+}
+
+l{
+    color: #ff4c15;
 }
