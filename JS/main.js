@@ -1,4 +1,4 @@
-function mudanca_tela(){
+function mudanca_tela_login(){
     var personagens = ['url(./imgs/yoru.jpg)', 'url(./imgs/raze.png)', 'url(./imgs/skye.jpg)', 'url(./imgs/reyna.png)','url(./imgs/breath.png)','url(./imgs/sage.png)']
 
     var cor_borda = ['#00aeff', '#dde909', '#009d03','#c500c5','#ff3c00','#00e768']
@@ -10,6 +10,7 @@ function mudanca_tela(){
     
     
     document.body.style.backgroundImage = personagens[computador];
+
     caixaPai.style.borderColor = cor_borda[computador];
     caixaPai.style.boxShadow = blor[computador];
     botao.style.borderColor = cor_borda[computador];
@@ -24,6 +25,6 @@ function mudanca_tela(){
 }
 
 setInterval(function(){
-    mudanca_tela()
+    mudanca_tela_login()
 },3000);
 
