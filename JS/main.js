@@ -3,7 +3,7 @@ function mudanca_tela_login(){
 
     var cor_borda = ['#00aeff', '#dde909', '#009d03','#c500c5','#ff3c00','#00e768']
 
-    var blor = ['#00ccff 3px 3px 30px 5px','#efbd08 3px 3px 30px 5px','#1d6201 3px 3px 30px 5px','#ff00ff 3px 3px 30px 5px','#ff4c15 3px 3px 30px 5px','#23ff86 3px 3px 30px 5px']
+    var blor = ['#00ccff 3px 3px 30px 9px , #00aeff -10px -2px 20px 2px','#efbd08 3px 3px 30px 9px , #efbd08 -10px -2px 20px 2px','#1d6201 3px 3px 30px 9px , #1d6201 -10px -2px 20px 2px','#ff00ff 3px 3px 30px 9px , #ff00ff -10px -2px 20px 2px','#ff4c15 3px 3px 30px 9px , #ff4c15 -10px -2px 20px 2px','#23ff86 3px 3px 30px 9px , #23ff86 -10px -2px 20px 2px']
     var cor = ['#000ba1','#efbd08','#1d6201','#ff00ff','#ff4c15','#23ff86']
     
     var computador = Math.floor(Math.random(1) * (6));
