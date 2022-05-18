@@ -1,31 +1,37 @@
-body{
+body {
     background-image: url(../imgs/omen.png);
     background-size: cover;
     font-family: monospace;
 }
 
-form{
+form {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    
+
 }
 
-.caixa_login{
+.caixa_login {
+    background-image: url(../imgs/omen.png);
+    background-size: cover;
     width: 70vw;
     height: 85vh;
-    background-color: rgba(0, 0, 0, 0.555);
+    background-color: rgba(0, 0, 0, 0.401);
     margin-top: 3.5vw;
     margin-left: 29vh;
     border-radius: 35px;
-    border: 4px inset rgb(59, 55, 55);
-    
+    border: 4px solid #3b3737;
+    box-shadow:  #3b3737 10px 5px 20px 7px, white -12.5px -2px 20px 2px;
 }
-
-.caixa_um{
-   /*  border: 3px solid red;  */
+/* 1 - somente a direita da input 
+   2 - somente embaixo
+   3 - sombra input inteira proporcionalmente
+   4 - tamanho da borda
+*/
+.caixa_um {
+    /*  border: 3px solid red;  */
     height: 60vh;
     width: 30vw;
     border-radius: 35px;
@@ -35,8 +41,8 @@ form{
     margin-bottom: 5%;
 }
 
-.caixa_dois{
-     border: 3px; 
+.caixa_dois {
+    border: 3px;
     height: 60vh;
     width: 30vw;
     border-radius: 35px;
@@ -44,20 +50,27 @@ form{
     align-items: center;
     flex-direction: column;
     margin-bottom: 5%;
-    }
+}
 
 
 
-input{
+input {
     margin-bottom: 0%;
     height: 12.5%;
     border-radius: 20px;
     width: 60%;
+    border: 0px solid;
     background-color: #d6d6d600;
     outline: 0;
-    color: #cfcfcfef;
+    color: white;
     padding-left: 2%;
+    box-shadow:#cfcfcf 5px 5px 10px 0px ,#897e7e -5px -5px 10px 0px;
 }
+/* 1 - somente a direita da input 
+   2 - somente embaixo
+   3 - sombra input inteira proporcionalmente
+   4 - tamanho da borda
+*/
 
 /* #input_confirmar_senha{
     width: 80%;
@@ -65,27 +78,27 @@ input{
     margin-left: 12%;
 } */
 
-.logo_cad{
+.logo_cad {
     width: 10%;
     position: absolute;
     left: 45%;
-    top:25%;
+    top: 25%;
 }
 
-.titulo{
+.titulo {
     position: absolute;
     top: 4%;
     left: 37.5%;
     font-size: 43px;
 }
 
-button{
+button {
     position: absolute;
-    top :50%;
+    top: 50%;
     left: 45%;
     width: 10%;
     height: 20%;
-    border-radius: 1000px;
+    border-radius: 50px;
     cursor: pointer;
     transition: 0.5s;
     border: 2px solid #ffffff;
@@ -96,7 +109,7 @@ button{
     color: #ffffff;
 }
 
-button:hover{
+button:hover {
     /* background-image: url(../imgs/botao.png);
     background-size: cover; */
     transition: 0.5s;
@@ -106,44 +119,48 @@ button:hover{
     font-weight: bold;
 }
 
-p{
+p {
     color: #cfcfcf;
     font-size: 20px;
     margin-bottom: 1.5%;
 }
 
 #input_nome::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 25%;
 }
 
 #input_usuario::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 37%;
 }
+
 #input_idade::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 41.5%;
 }
+
 #input_email::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 15.5%;
 }
 
-
 #input_senha::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 40.5%;
 }
+
 #input_confirmar_senha::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 40.5%;
 }
+
 #input_rua::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 32%;
 }
+
 #input_cep::placeholder {
-    color: #ffffffc4;
+    color: #ffffff;
     padding-left: 35%;
 }

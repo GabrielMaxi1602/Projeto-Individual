@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.74);
     margin-left: 6.5%;
     margin-top: 4%;
-    border: 2px solid #000ba1;
+    border: 3px solid #00ccff;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -136,4 +136,5 @@ a{
 
 testes{
     color: #ffd900;
+    color: #1f7cff;
 }
