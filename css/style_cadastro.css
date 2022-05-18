@@ -1,18 +1,149 @@
-.gif_fundo{
-    width: 100vw;
-    background-size: cover;
-}
-
 body{
     background-image: url(../imgs/omen.png);
     background-size: cover;
+    font-family: monospace;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
 }
 
 .caixa_login{
-    width: 80vw;
+    width: 70vw;
     height: 85vh;
-    background-color: rgba(0, 0, 0, 0.63);
+    background-color: rgba(0, 0, 0, 0.555);
     margin-top: 3.5vw;
-    margin-left: 19vh;
-    border-radius: 50px;
+    margin-left: 29vh;
+    border-radius: 35px;
+    border: 4px inset rgb(59, 55, 55);
+    
+}
+
+.caixa_um{
+   /*  border: 3px solid red;  */
+    height: 60vh;
+    width: 30vw;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.caixa_dois{
+     border: 3px; 
+    height: 60vh;
+    width: 30vw;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+    }
+
+
+
+input{
+    margin-bottom: 0%;
+    height: 12.5%;
+    border-radius: 20px;
+    width: 60%;
+    background-color: #d6d6d600;
+    outline: 0;
+    color: #cfcfcfef;
+    padding-left: 2%;
+}
+
+/* #input_confirmar_senha{
+    width: 80%;
+    height: 34.5%;
+    margin-left: 12%;
+} */
+
+.logo_cad{
+    width: 10%;
+    position: absolute;
+    left: 45%;
+    top:25%;
+}
+
+.titulo{
+    position: absolute;
+    top: 4%;
+    left: 37.5%;
+    font-size: 43px;
+}
+
+button{
+    position: absolute;
+    top :50%;
+    left: 45%;
+    width: 10%;
+    height: 20%;
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 2px solid #ffffff;
+    background-color: #00000007;
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+button:hover{
+    /* background-image: url(../imgs/botao.png);
+    background-size: cover; */
+    transition: 0.5s;
+    color: red;
+    font-family: monospace;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+p{
+    color: #cfcfcf;
+    font-size: 20px;
+    margin-bottom: 1.5%;
+}
+
+#input_nome::placeholder {
+    color: #ffffffc4;
+    padding-left: 25%;
+}
+
+#input_usuario::placeholder {
+    color: #ffffffc4;
+    padding-left: 37%;
+}
+#input_idade::placeholder {
+    color: #ffffffc4;
+    padding-left: 41.5%;
+}
+#input_email::placeholder {
+    color: #ffffffc4;
+    padding-left: 15.5%;
+}
+
+
+#input_senha::placeholder {
+    color: #ffffffc4;
+    padding-left: 40.5%;
+}
+#input_confirmar_senha::placeholder {
+    color: #ffffffc4;
+    padding-left: 40.5%;
+}
+#input_rua::placeholder {
+    color: #ffffffc4;
+    padding-left: 32%;
+}
+#input_cep::placeholder {
+    color: #ffffffc4;
+    padding-left: 35%;
 }
