@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/style_login.css">
+    <script src="./JS/main_login.js"></script>
+
+</head>
+<body>
+    <header>
+        <img class="logo_valorant" src="./imgs/logo_vava.png" alt="">
+        <div  id="caixaPai" class="caixa_login">
+            <form>
+                <h1>Iniciar Sessão</h1>
+                <div class="sub_container">
+                <label for="input_email">Email</label>
+                <input id="input_email" type="email" id="input_email" placeholder="  valorant.game@game.com">
+                <br>
+                <label for="input_senha">Senha</label>
+                <input id="input_senha" type="text" id="input_senha" placeholder="************">
+            </div>
+            <br>
+            <button type="button" id="botao">INICIAR</button>
+            <p class="frase_final">Sem login? Realize seu <a id="cadastrar_palavra" href="./cadastro.html">Cadastro!</a></p>
+            </form>
+        </div>
+    </header>
+</body>
+</html>
+
+<script>
+    function entrar() {
+        aguardar();
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('Preencha todos os campos')
+        }
+        else {
+            
+        
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+
+                    /* TEM QUE ESTAR IGUAL AS COLUNAS DO BANCO */
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./menu.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);                    
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        
+    }
+    }
+</script>
