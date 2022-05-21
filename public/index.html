@@ -1,105 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style_cadastro.css">
-    <script src="JS/main_cadastro.js"></script>
+    <title>Menu</title>
+<link rel="stylesheet" href="css/style_index.css">
 </head>
-
 <body>
-    <img class="logo_cad" src="imgs/logo_cadastro.png" alt="logo da valorant">
-    <div id="caixa_login" class="caixa_login">
-        <form>
-            <p class="titulo">CRIE SUA CONTA!</p>
-            <div class="caixa_um">
-                
-                <p>Nome:</p><input placeholder="Gabriel Maximiano" id="input_nome">
-                    <p>Usuário:</p><input id="input_usuario" placeholder="Valorant">
-                    <p>Idade:</p><input id="input_idade" placeholder="+12">
-                    <p>Email:</p><input id="input_email" placeholder="valorant.game@game.com">
-            </div>
-
-            <div class="caixa_dois">
-                <p>Senha:</p><input id="input_senha" placeholder="*******">
-                    <p>Confirmar senha:</p><input id="input_confirmar_senha" placeholder="*******">
-                    <p>CEP:</p><input id="input_cep" placeholder="08450-320">
-                    <p>estado:</p><input id="input_estado" placeholder="SP">
-                </div>
-            </div>
-            <div>
-                <button type="button" id="botao" onclick="cadastrar()">
-                    CADASTRAR!
-                </button>
-            </div>
-        </form>
+    <header>
+        <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
+        <div class="nav_bar">
+        <a href="#">SORTEIO</a>
+        <a href="#">PERSONAGENS</a>
+        <a href="#">SOBRE</a>
+        <a href="#">DOWNLOAD</a>
+        </div>
+        <div class="caixa_button">
+        <button id="button_ent">ENTRAR</button>
+        <p style="font-size: 30px; margin-top: -4%;">|</p>
+        <button id="button_cad">CADASTRO</button>
+        </div>
+    </header>
+    <div style="width: 1%;height:6.3vw;background-color:black;"></div>
+    <div class="container">
+        <!-- ITENS E CAIXA --> 
     </div>
+    <div style="width: 100%;height:0.2vw;background-color: #FF5252;"></div>
+    <div class="container_dois"></div>
 </body>
+<footer>
 
+</footer>
 </html>
-
-<script>
-    function cadastrar() {
-        
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = input_nome.value;
-        var usuarioVar = input_usuario.value;
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-        var confirmarSenhaVar = input_confirmar_senha.value;
-        var idadeVar = input_idade.value;
-        var cepVar = input_cep.value;
-        var estadoVar = input_estado.value;
-
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmarSenhaVar == "") {
-            alert('erro')
-            
-        }
-        else {
-            
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                usuarioServer: usuarioVar,
-                idadeServer: idadeVar,
-                cepServer: cepVar,
-                estadoServer: estadoVar, 
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-            
-            if (resposta.ok) {
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-                
-                
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-           
-        });
-
-       
-    }
-    
-}
-
-</script>
