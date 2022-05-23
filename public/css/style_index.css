@@ -8,6 +8,7 @@
 body{
     width: 98.7vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 header{
@@ -84,7 +85,11 @@ header button{
 }
 
 #button_cad{
-    margin-left: 5.8%;
+    margin-left: 3.6%;
+}
+
+#button_ent{
+    margin-left: -2%;
 }
 
 
@@ -140,7 +145,7 @@ header button:hover{
     font-family: 'Anton';
     color:white; 
     font-size: 6em;
-    margin-left: 22%;
+    margin-left: 13%;
     margin-bottom: 2%;
 }
 
@@ -161,8 +166,8 @@ header button:hover{
     font-family: "Anton";
     color:black; 
     font-size: 6em;
-    margin-bottom: 10%;
-    margin-left: 17%;
+    margin-bottom: 2%;
+    margin-left: 9%;
 }
 
 .caixa_sorteio h2{
@@ -177,7 +182,7 @@ header button:hover{
     font-family: '"DINNextW05-Medium"';
     color:black; 
     font-size: 37px;
-    margin-bottom: 35%;
+    margin-bottom: 28%;
 }
 
 footer{
