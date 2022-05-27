@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="botao_sortear" onclick="sortear()">
+    GG
+</button>
+<div id="resultado"></div>
+<div id="resultado_skin"></div>
+</body>
+</html>
+
+<script>
+    function sortear(){
+        var sorteio_classes = Math.floor(Math.random(1) * 10)
+        var sorteio_skin = Math.floor(Math.random(1) * 10)
+
+        var lista_skin = [
+        '<img src="../public/imgs_sorteio/faca_dragao.png" alt="0">', 
+        '<img src="../public/imgs_sorteio/faca_oni.png" alt="1">', 
+        '<img src="../public/imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
+        '<img src="../public/imgs_sorteio/ghost_oceano_R.webp" alt="3">',
+        '<img src="../public/imgs_sorteio/ghost_trevas_E.webp" alt="4">',
+        '<img src="../public/imgs_sorteio/marshal_dourada_E.webp" alt="5">', 
+        '<img src="../public/imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
+        '<img src="../public/imgs_sorteio/operator_dourada_E.webp" alt="7">',
+        '<img src="../public/imgs_sorteio/operator_ion_R.webp" alt="8">',
+        '<img src="../public/imgs_sorteio/operator_sentinela_L.webp" alt="9">',
+        '<img src="../public/imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
+        '<img src="../public/imgs_sorteio/phaton_ion_R.webp" alt="11">',
+        '<img src="../public/imgs_sorteio/phaton_oni_L.webp" alt="12">',
+        '<img src="../public/imgs_sorteio/phaton_reyna_N.webp" alt="13">',
+        '<img src="../public/imgs_sorteio/phaton_treva_L.webp" alt="14">',
+        '<img src="../public/imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
+        '<img src="../public/imgs_sorteio/sheriff_sakura_N.webp" alt="16">',
+        '<img src="../public/imgs_sorteio/sherrif_ferrugem_R.webp" alt="17">',
+        '<img src="../public/imgs_sorteio/vandal_dragao_L.png" alt="18">',
+        '<img src="../public/imgs_sorteio/vandal_roxa_N.webp" alt="19">',
+        '<img src="../public/imgs_sorteio/vandal_sentinela_E.webp" alt="20">'
+    ];
+    
+
+
+
+
+        if(sorteio_classes == 0){
+            resultado.innerHTML = "Lendaria_faca"
+            if(sorteio_skin < 2){
+                resultado_skin.innerHTML = lista_skin[0]
+            }else {
+                resultado_skin.innerHTML = lista_skin[1]
+            }
+        }else if(sorteio_classes == 1){
+            resultado.innerHTML = "lendaria_arma L"
+            if(sorteio_skin <= 2.5){
+                resultado_skin.innerHTML = lista_skin[9]
+            }else if(sorteio_skin <= 5.0){
+                resultado_skin.innerHTML = lista_skin[12]
+            }else if(sorteio_skin <= 7.5){
+                resultado_skin.innerHTML = lista_skin[14]
+            }else{
+                resultado_skin.innerHTML = lista_skin[18]
+            }
+        }else if(sorteio_classes <= 3){
+            resultado.innerHTML = "epica"
+            if(sorteio_skin <= 2 ){
+               resultado_skin.innerHTML = lista_skin[4] 
+            }else if(sorteio_skin <= 4){
+                resultado_skin.innerHTML = lista_skin[5] 
+                }else if(sorteio_skin <= 6){
+                    resultado_skin.innerHTML = lista_skin[7] 
+                }else if(sorteio_skin <= 8){
+                    resultado_skin.innerHTML = lista_skin[10] 
+                }else{
+                    resultado_skin.innerHTML = lista_skin[20]
+                }
+        }else if(sorteio_classes <= 6){
+            resultado.innerHTML = "rara"
+            if(sorteio_skin <= 2){
+            resultado_skin.innerHTML = lista_skin[3]
+            }else if(sorteio_skin <= 4){
+            resultado_skin.innerHTML = lista_skin[8]
+            }else if(sorteio_skin <= 6){
+            resultado_skin.innerHTML = lista_skin[11]
+            }else if(sorteio_skin <= 8){
+                resultado_skin.innerHTML = lista_skin[15]
+            }else{
+                resultado_skin.innerHTML = lista_skin[17]
+            }
+        }else if(sorteio_classes <= 10){
+            resultado.innerHTML = "normal"
+            if(sorteio_skin <= 2){
+            resultado_skin.innerHTML = lista_skin[2]
+            }else if(sorteio_skin <= 4){
+            resultado_skin.innerHTML = lista_skin[6]
+            }else if(sorteio_skin <= 6){
+            resultado_skin.innerHTML = lista_skin[13]
+            }else if(sorteio_skin <= 8){
+            resultado_skin.innerHTML = lista_skin[16]
+            }else{
+            resultado_skin.innerHTML = lista_skin[19]
+            }
+        }
+        botao_sortear.disabled = true
+
+        setTimeout(function(){
+            botao_sortear.disabled = false
+},1000);
+    }
+</script>
