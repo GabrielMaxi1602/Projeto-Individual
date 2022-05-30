@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SORTEIO</title>
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/style_sorteio.css">
 </head>
@@ -31,11 +31,16 @@
         <p>Para conhecer as regras do<br>
           sorteio  clique em <u><a href="sobre.html">SOBRE</a></u></p>
     </div>
-    <!-- <button id="botao_sortear" onclick="sortear()">
-    GG
-</button> -->
-<div id="resultado"></div>
-<div id="resultado_skin"></div>
+    <button id="botao_sortear" onclick="abrir_poupap()">
+    SORTEIO
+</button> 
+<div id="poupap" class="pop">
+
+    <button onclick="fechar_poupap()">
+        <img src="imgs/icone_erro-removebg-preview.png" alt="icone de erro">
+    </button>
+    <div id="resultado_skin"></div>
+</div>
 </body>
 <div class="aa">
     
@@ -43,9 +48,23 @@
 </html>
 
 <script>
+
+    function abrir_poupap(){
+        poupap.style.display = 'flex'
+        sortear()
+        
+    }
+
+    function fechar_poupap(){
+        poupap.style.display = 'none'
+    }
+
     function sortear(){
         var sorteio_classes = Math.floor(Math.random(1) * 10)
         var sorteio_skin = Math.floor(Math.random(1) * 10)
+        
+        
+        
 
         var lista_skin = [
         '<img src="../public/imgs_sorteio/faca_dragao.png" alt="0">', 
@@ -76,61 +95,99 @@
 
 
         if(sorteio_classes == 0){
-            resultado.innerHTML = "Lendaria_faca"
-            if(sorteio_skin < 2){
+                       if(sorteio_skin < 2){
                 resultado_skin.innerHTML = lista_skin[0]
+                poupap.style.border = `4px solid #eeff00`
+                poupap.style.boxShadow = `#eeff00 10px 10px 30px 10px ,#eeff00 -10px -10px 10px 10px `
             }else {
                 resultado_skin.innerHTML = lista_skin[1]
+                poupap.style.border = `4px solid #eeff00`
+                poupap.style.boxShadow = `#eeff00 10px 10px 30px 10px , #eeff00 -10px -10px 10px 10px `
             }
         }else if(sorteio_classes == 1){
-            resultado.innerHTML = "lendaria_arma L"
+            
             if(sorteio_skin <= 2.5){
                 resultado_skin.innerHTML = lista_skin[9]
+                poupap.style.border = `4px solid #ff6600`
+                poupap.style.boxShadow = `#ff6600 10px 10px 30px 10px ,  #ff6600 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 5.0){
                 resultado_skin.innerHTML = lista_skin[12]
+                poupap.style.border = `4px solid #ff6600`
+                poupap.style.boxShadow = `#ff6600 10px 10px 30px 10px ,#ff6600 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 7.5){
                 resultado_skin.innerHTML = lista_skin[14]
+                poupap.style.border = `4px solid #ff6600`
+                poupap.style.boxShadow = `#ff6600 10px 10px 30px 10px ,#ff6600 -10px -10px 10px 10px #ff6600`
             }else{
                 resultado_skin.innerHTML = lista_skin[18]
+                poupap.style.border = `4px solid #ff6600`
+                poupap.style.boxShadow = `#ff6600 10px 10px 30px 10px , #ff6600 -10px -10px 10px 10px `
             }
         }else if(sorteio_classes <= 3){
-            resultado.innerHTML = "epica"
-            if(sorteio_skin <= 2 ){
-               resultado_skin.innerHTML = lista_skin[4] 
+               if(sorteio_skin <= 2 ){
+               resultado_skin.innerHTML = lista_skin[4]
+               poupap.style.border = `4px solid #ca0fa2` 
+               poupap.style.boxShadow = `#ca0fa2 10px 10px 30px 10px , #ca0fa2 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 4){
-                resultado_skin.innerHTML = lista_skin[5] 
+                resultado_skin.innerHTML = lista_skin[5]
+                poupap.style.border = `4px solid #ca0fa2`
+                poupap.style.boxShadow = `#ca0fa2 10px 10px 30px 10px , #ca0fa2 -10px -10px 10px 10px ` 
                 }else if(sorteio_skin <= 6){
-                    resultado_skin.innerHTML = lista_skin[7] 
+                    resultado_skin.innerHTML = lista_skin[7]
+                    poupap.style.border = `4px solid #ca0fa2`
+                    poupap.style.boxShadow = `#ca0fa2 10px 10px 30px 10px , #ca0fa2 -10px -10px 10px 10px ` 
                 }else if(sorteio_skin <= 8){
-                    resultado_skin.innerHTML = lista_skin[10] 
+                    resultado_skin.innerHTML = lista_skin[10]
+                    poupap.style.border = `4px solid #ca0fa2`
+                    poupap.style.boxShadow = `#ca0fa2 10px 10px 30px 10px , #ca0fa2 -10px -10px 10px 10px ` 
                 }else{
                     resultado_skin.innerHTML = lista_skin[20]
+                    poupap.style.border = `4px solid #ca0fa2`
+                    poupap.style.boxShadow = `#ca0fa2 10px 10px 30px 10px , #ca0fa2 -10px -10px 10px 10px `
                 }
         }else if(sorteio_classes <= 6){
-            resultado.innerHTML = "rara"
-            if(sorteio_skin <= 2){
+              if(sorteio_skin <= 2){
             resultado_skin.innerHTML = lista_skin[3]
+            poupap.style.border = `4px solid #3520f3`
+            poupap.style.boxShadow = `#3520f3 10px 10px 30px 10px , #3520f3 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 4){
             resultado_skin.innerHTML = lista_skin[8]
+            poupap.style.border = `4px solid #3520f3`
+            poupap.style.boxShadow = `#3520f3 10px 10px 30px 10px , #3520f3 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 6){
             resultado_skin.innerHTML = lista_skin[11]
+            poupap.style.border = `4px solid #3520f3`
+            poupap.style.boxShadow = `#3520f3 10px 10px 30px 10px , #3520f3 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 8){
                 resultado_skin.innerHTML = lista_skin[15]
+                poupap.style.border = `4px solid #3520f3`
+                poupap.style.boxShadow = `#3520f3 10px 10px 30px 10px , #3520f3 -10px -10px 10px 10px `
             }else{
                 resultado_skin.innerHTML = lista_skin[17]
+                poupap.style.border = `4px solid #3520f3`
+                poupap.style.boxShadow = `#3520f3 10px 10px 30px 10px , #3520f3 -10px -10px 10px 10px `
             }
         }else if(sorteio_classes <= 10){
-            resultado.innerHTML = "normal"
-            if(sorteio_skin <= 2){
+                if(sorteio_skin <= 2){
             resultado_skin.innerHTML = lista_skin[2]
+            poupap.style.border = `4px solid #5c5353`
+            poupap.style.boxShadow = `#5c5353 10px 10px 30px 10px , #5c5353 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 4){
             resultado_skin.innerHTML = lista_skin[6]
+            poupap.style.border = `4px solid #5c5353`
+            poupap.style.boxShadow = `#5c5353 10px 10px 30px 10px , #5c5353 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 6){
             resultado_skin.innerHTML = lista_skin[13]
+            poupap.style.border = `4px solid #5c5353`
+            poupap.style.boxShadow = `#5c5353 10px 10px 30px 10px , #5c5353 -10px -10px 10px 10px `
             }else if(sorteio_skin <= 8){
             resultado_skin.innerHTML = lista_skin[16]
+            poupap.style.border = `4px solid #5c5353`
+            poupap.style.boxShadow = `#5c5353 10px 10px 30px 10px , #5c5353 -10px -10px 10px 10px `
             }else{
             resultado_skin.innerHTML = lista_skin[19]
+            poupap.style.border = `4px solid #5c5353`
+            poupap.style.boxShadow = `#5c5353 10px 10px 30px 10px , #5c5353 -10px -10px 10px 10px `
             }
         }
         botao_sortear.disabled = true
