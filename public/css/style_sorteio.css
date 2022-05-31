@@ -192,6 +192,7 @@ header button:hover{
     margin-top: -38.5%;
     box-shadow: 10px 10px 30px 10px #24242400, -10px -10px 10px 10px #24242400;
     border: 0px solid rgb(255, 255, 255);
+    z-index: 999;
 }
 .pop button{
     background-color: transparent;
@@ -202,6 +203,8 @@ header button:hover{
     width: 100px;
     height: 50px;
     cursor: pointer;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 .pop button img{
     width: 50px;
@@ -211,4 +214,13 @@ header button:hover{
 #resultado_skin{
     display: flex;
     align-self: center;
+}
+
+#tela_opacity{
+    background-color: #000000c9;
+    width: 100vw;
+    height: 140vh;
+    z-index: 100;
+    position: fixed;
+    display: none;
 }
