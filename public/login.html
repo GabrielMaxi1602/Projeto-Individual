@@ -67,9 +67,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nomeUsuario;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.VP = json.vp;
 
                     setTimeout(function () {
-                        window.location = "http://moodle.sptech.school/";
+                        window.location.assign("sobre.html")
                     }, 1000); // apenas para exibir o loading
 
                 });

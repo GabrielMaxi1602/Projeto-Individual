@@ -69,6 +69,7 @@ function cadastrar(req, res) {
     var cep = req.body.cepServer;
     var estado = req.body.estadoServer;
     var idade = req.body.idadeServer;
+    
 
 
     // Faça as validações dos valores
@@ -110,9 +111,44 @@ function cadastrar(req, res) {
     }
 }
 
+function jogar(req, res) {
+    var idUsuario = req.body.idusuarioServer;
+    var vps = req.body.vpServer;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu idUsuario está undefined!");
+    } else if (vps == undefined) {
+        res.status(400).send("Sua vps está indefinida!");
+    } else {
+        
+        usuarioModel.jogar(idUsuario, vps)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length == 1) {
+                        console.log(resultado);
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("idUsuario e/ou vps inválido(s)");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o update! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    jogar
 }

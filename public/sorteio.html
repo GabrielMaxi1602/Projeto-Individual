@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,206 +8,265 @@
     <title>SORTEIO</title>
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/style_sorteio.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
 </head>
 <div id="tela_opacity"></div>
 <header>
     <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
     <div class="nav_bar">
-    <a href="sorteio.html">SORTEIO</a>
-    <a href="agentes.html">AGENTES</a>
-    <a href="sobre.html">SOBRE</a>
-    <a href="index.html">HOME</a>
+        <a href="sorteio.html">SORTEIO</a>
+        <a href="agentes.html">AGENTES</a>
+        <a href="sobre.html">SOBRE</a>
+        <a href="index.html">HOME</a>
     </div>
 
     <div class="caixa_infos">
-        Olá <span>USUARIO</span>
+        Olá <span id="span_usuario">USUARIO</span>
         <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
-        VP:<span>0</span>
+        VP:<span id="span_vp">0</span>
     </div>
 
 </header>
+
 <body>
     <div style="width: 1%;height:6.3vw;background-color:black;"></div>
     <div class="caixa_titulo">
         <p>BEM VINDO AO SORTEIO</p>
     </div>
-        <p class="paragrafo_regras">Para conhecer as regras do
-          sorteio  clique em <u><a href="sobre.html">SOBRE</a></u></p>
-    
-    <button id="botao_sortear" onclick="abrir_poupap()">
-    JOGAR
-</button> 
-<div id="poupap" class="pop">
+    <p class="paragrafo_regras">Para conhecer as regras do
+        sorteio clique em <u><a href="sobre.html">SOBRE</a></u></p>
 
-    <button onclick="fechar_poupap()">
-        <img src="imgs/fechar.png"  alt="icone de erro">
+    <button id="botao_sortear" onclick="abrir_poupap()">
+        JOGAR
     </button>
-    <div id="resultado_skin"></div>
-</div>
+    <div id="poupap" class="pop">
+
+        <button onclick="fechar_poupap()">
+            <img src="imgs/fechar.png" alt="icone de erro">
+        </button>
+        <div id="resultado_skin"></div>
+    </div>
 </body>
 <div class="aa">
-    
+
 </div>
+
 </html>
 
 <script>
 
-    function ir_login(){
-        window.location.assign("login.html") 
+    function ir_login() {
+        window.location.assign("login.html")
     }
 
-    function ir_cadastro(){
-        window.location.assign("cadastro.html") 
+    function ir_cadastro() {
+        window.location.assign("cadastro.html")
     }
 
-    function abrir_poupap(){
+    function abrir_poupap() {
         poupap.style.display = 'flex'
         tela_opacity.style.display = 'flex'
         sortear()
-        
+
     }
 
-    function fechar_poupap(){
+    function fechar_poupap() {
         poupap.style.display = 'none'
         tela_opacity.style.display = 'none'
     }
 
-    function sortear(){
+    function sortear() {
         var sorteio_classes = Math.floor(Math.random(1) * 10)
         var sorteio_skin = Math.floor(Math.random(1) * 10)
-        
-        
-        
+
+
+
 
         var lista_skin = [
-        '<img style="margin-left:12%;" src="../public/imgs_sorteio/faca_dragao.png" alt="0">', 
-        '<img style="margin-left:11%;" src="../public/imgs_sorteio/faca_oni.png" alt="1">', 
-        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
-        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_oceano_R.webp" alt="3">',
-        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_trevas_E.webp" alt="4">',
-        '<img style="width:40vw;  margin-left:15%; " src="../public/imgs_sorteio/marshal_dourada_E.webp" alt="5">', 
-        '<img style="width:40vw;  margin-left:15%;" src="../public/imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
-        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_dourada_E.webp" alt="7">',
-        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_ion_R.webp" alt="8">',
-        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_sentinela_L.webp" alt="9">',
-        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
-        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_ion_R.webp" alt="11">',
-        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_oni_L.webp" alt="110">',
-        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_reyna_N.webp" alt="13">',
-        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_treva_L.webp" alt="14">',
-        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
-        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sheriff_sakura_N.webp" alt="16">',
-        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sherrif_ferrugem_R.webp" alt="17">',
-        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_dragao_L.png" alt="18">',
-        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_roxa_N.webp" alt="19">',
-        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_sentinela_E.webp" alt="20">'
-    ];
-    
+            '<img style="margin-left:12%;" src="./imgs_sorteio/faca_dragao.png" alt="0">',
+            '<img style="margin-left:11%;" src="./imgs_sorteio/faca_oni.png" alt="1">',
+            '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
+            '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_oceano_R.webp" alt="3">',
+            '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_trevas_E.webp" alt="4">',
+            '<img style="width:40vw;  margin-left:15%; " src="./imgs_sorteio/marshal_dourada_E.webp" alt="5">',
+            '<img style="width:40vw;  margin-left:15%;" src="./imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
+            '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_dourada_E.webp" alt="7">',
+            '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_ion_R.webp" alt="8">',
+            '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_sentinela_L.webp" alt="9">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_ion_R.webp" alt="11">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_oni_L.webp" alt="110">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_reyna_N.webp" alt="13">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_treva_L.webp" alt="14">',
+            '<img style="margin-left:25.5%;" src="./imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
+            '<img style="margin-left:25.5%;" src="./imgs_sorteio/sheriff_sakura_N.webp" alt="16">',
+            '<img style="margin-left:25.5%;" src="./imgs_sorteio/sherrif_ferrugem_R.webp" alt="17">',
+            '<img style="width:35vw; margin-left:24%;" src="./imgs_sorteio/vandal_dragao_L.png" alt="18">',
+            '<img style="width:35vw; margin-left:24%;" src="./imgs_sorteio/vandal_roxa_N.webp" alt="19">',
+            '<img style="width:35vw; margin-left:24%;" src="./imgs_sorteio/vandal_sentinela_E.webp" alt="20">'
+        ];
 
 
 
 
-        if(sorteio_classes == 0){
-                       if(sorteio_skin < 2){
+
+        if (sorteio_classes == 0) {
+            if (sorteio_skin < 2) {
                 resultado_skin.innerHTML = lista_skin[0]
                 poupap.style.border = `4px solid #eeff00`
                 poupap.style.boxShadow = `#eeff00 2px 2px 60px 2px  `
-            }else {
+            } else {
                 resultado_skin.innerHTML = lista_skin[1]
                 poupap.style.border = `4px solid #eeff00`
                 poupap.style.boxShadow = `#eeff00 2px 2px 60px 2px`
             }
-        }else if(sorteio_classes == 1){
-            
-            if(sorteio_skin <= 2.5){
+        } else if (sorteio_classes == 1) {
+
+            if (sorteio_skin <= 2.5) {
                 resultado_skin.innerHTML = lista_skin[9]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 5.0){
+            } else if (sorteio_skin <= 5.0) {
                 resultado_skin.innerHTML = lista_skin[12]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 7.5){
+            } else if (sorteio_skin <= 7.5) {
                 resultado_skin.innerHTML = lista_skin[14]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px`
-            }else{
+            } else {
                 resultado_skin.innerHTML = lista_skin[18]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
             }
-        }else if(sorteio_classes <= 3){
-               if(sorteio_skin <= 2 ){
-               resultado_skin.innerHTML = lista_skin[4]
-               poupap.style.border = `4px solid #ca0fa2` 
-               poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 4){
+        } else if (sorteio_classes <= 3) {
+            if (sorteio_skin <= 2) {
+                resultado_skin.innerHTML = lista_skin[4]
+                poupap.style.border = `4px solid #ca0fa2`
+                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
+            } else if (sorteio_skin <= 4) {
                 resultado_skin.innerHTML = lista_skin[5]
                 poupap.style.border = `4px solid #ca0fa2`
-                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  ` 
-                }else if(sorteio_skin <= 6){
-                    resultado_skin.innerHTML = lista_skin[7]
-                    poupap.style.border = `4px solid #ca0fa2`
-                    poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px ` 
-                }else if(sorteio_skin <= 8){
-                    resultado_skin.innerHTML = lista_skin[10]
-                    poupap.style.border = `4px solid #ca0fa2`
-                    poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  ` 
-                }else{
-                    resultado_skin.innerHTML = lista_skin[20]
-                    poupap.style.border = `4px solid #ca0fa2`
-                    poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
-                }
-        }else if(sorteio_classes <= 6){
-              if(sorteio_skin <= 2){
-            resultado_skin.innerHTML = lista_skin[3]
-            poupap.style.border = `4px solid #3520f3`
-            poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
-            }else if(sorteio_skin <= 4){
-            resultado_skin.innerHTML = lista_skin[8]
-            poupap.style.border = `4px solid #3520f3`
-            poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
-            }else if(sorteio_skin <= 6){
-            resultado_skin.innerHTML = lista_skin[11]
-            poupap.style.border = `4px solid #3520f3`
-            poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
-            }else if(sorteio_skin <= 8){
+                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+            } else if (sorteio_skin <= 6) {
+                resultado_skin.innerHTML = lista_skin[7]
+                poupap.style.border = `4px solid #ca0fa2`
+                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
+            } else if (sorteio_skin <= 8) {
+                resultado_skin.innerHTML = lista_skin[10]
+                poupap.style.border = `4px solid #ca0fa2`
+                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+            } else {
+                resultado_skin.innerHTML = lista_skin[20]
+                poupap.style.border = `4px solid #ca0fa2`
+                poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+            }
+        } else if (sorteio_classes <= 6) {
+            if (sorteio_skin <= 2) {
+                resultado_skin.innerHTML = lista_skin[3]
+                poupap.style.border = `4px solid #3520f3`
+                poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+            } else if (sorteio_skin <= 4) {
+                resultado_skin.innerHTML = lista_skin[8]
+                poupap.style.border = `4px solid #3520f3`
+                poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+            } else if (sorteio_skin <= 6) {
+                resultado_skin.innerHTML = lista_skin[11]
+                poupap.style.border = `4px solid #3520f3`
+                poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+            } else if (sorteio_skin <= 8) {
                 resultado_skin.innerHTML = lista_skin[15]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
-            }else{
+            } else {
                 resultado_skin.innerHTML = lista_skin[17]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
             }
-        }else if(sorteio_classes <= 10){
-                if(sorteio_skin <= 2){
-            resultado_skin.innerHTML = lista_skin[2]
-            poupap.style.border = `4px solid #b6b6b6`
-            poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 4){
-            resultado_skin.innerHTML = lista_skin[6]
-            poupap.style.border = `4px solid #b6b6b6`
-            poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 6){
-            resultado_skin.innerHTML = lista_skin[13]
-            poupap.style.border = `4px solid #b6b6b6`
-            poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
-            }else if(sorteio_skin <= 8){
-            resultado_skin.innerHTML = lista_skin[16]
-            poupap.style.border = `4px solid #b6b6b6`
-            poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
-            }else{
-            resultado_skin.innerHTML = lista_skin[19]
-            poupap.style.border = `4px solid #b6b6b6`
-            poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+        } else if (sorteio_classes <= 10) {
+            if (sorteio_skin <= 2) {
+                resultado_skin.innerHTML = lista_skin[2]
+                poupap.style.border = `4px solid #b6b6b6`
+                poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+            } else if (sorteio_skin <= 4) {
+                resultado_skin.innerHTML = lista_skin[6]
+                poupap.style.border = `4px solid #b6b6b6`
+                poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+            } else if (sorteio_skin <= 6) {
+                resultado_skin.innerHTML = lista_skin[13]
+                poupap.style.border = `4px solid #b6b6b6`
+                poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+            } else if (sorteio_skin <= 8) {
+                resultado_skin.innerHTML = lista_skin[16]
+                poupap.style.border = `4px solid #b6b6b6`
+                poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+            } else {
+                resultado_skin.innerHTML = lista_skin[19]
+                poupap.style.border = `4px solid #b6b6b6`
+                poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
             }
         }
         botao_sortear.disabled = true
-
-        setTimeout(function(){
+        jogar()
+        setTimeout(function () {
             botao_sortear.disabled = false
-},1000);
+        }, 1000);
     }
+
+    span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    span_vp.innerHTML = sessionStorage.VP
+
+    function jogar() {
+
+        var idusuario = sessionStorage.ID_USUARIO;
+        var vps = Number(sessionStorage.VP) - 20;
+
+        if(vps < 20){
+            alert('Saldo insuficente :(')
+        }else{
+        sessionStorage.VP = vps;
+        span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        span_vp.innerHTML = sessionStorage.VP
+        
+
+            fetch("/usuarios/jogar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idusuarioServer: idusuario,
+                    vpServer: vps
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+
+                        
+                    });
+
+                } else {
+
+                    console.log("erro ao dar update no vp");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+        }
+
+    }
+    
 </script>

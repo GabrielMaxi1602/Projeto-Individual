@@ -21,9 +21,9 @@
         </div>
 
         <div class="caixa_infos">
-            Olá <span>USUARIO</span>
+            Olá <span id="span_usuario">USUARIO</span>
             <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
-            VP:<span>0</span>
+            VP:<span id="span_vp">0</span>
         </div>
 
     </header>
@@ -58,4 +58,6 @@
     function ir_cadastro(){
         window.location.assign("cadastro.html") 
     }
+    span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    span_vp.innerHTML = sessionStorage.VP
     </script>

@@ -67,6 +67,7 @@ input {
     outline: 0;
     color: white;
     padding-left: 2%;
+    text-align: center;
     box-shadow:#cfcfcf 5px 5px 10px 0px ,#897e7e -5px -5px 10px 0px;
 }
 /* 1 - somente a direita da input 
@@ -131,40 +132,37 @@ p {
 
 #input_nome::placeholder {
     color: #ffffff;
-    padding-left: 25%;
-}
+}   
 
 #input_usuario::placeholder {
     color: #ffffff;
-    padding-left: 37%;
-}
+}   
 
 #input_idade::placeholder {
     color: #ffffff;
-    padding-left: 41.5%;
+    
 }
 
 #input_email::placeholder {
     color: #ffffff;
-    padding-left: 15.5%;
+    
 }
 
 #input_senha::placeholder {
     color: #ffffff;
-    padding-left: 40.5%;
+    
 }
 
 #input_confirmar_senha::placeholder {
     color: #ffffff;
-    padding-left: 40.5%;
+    
 }
 
 #input_estado::placeholder {
     color: #ffffff;
-    padding-left: 44.5%;
+    
 }
 
 #input_cep::placeholder {
     color: #ffffff;
-    padding-left: 35%;
 }

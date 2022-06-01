@@ -18,7 +18,8 @@ idade int,
 senha varchar(200),
 cep varchar(20),
 estado varchar(20),
-email varchar(200)
+email varchar(200),
+vp varchar(10)
 );
 
 create table sorteio (
