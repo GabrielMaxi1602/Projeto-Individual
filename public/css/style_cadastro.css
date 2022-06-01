@@ -4,7 +4,7 @@ body {
     background-image: url(../imgs/omen.png);
     background-size: cover;
     font-family: monospace;
-    backdrop-filter: blur(3px);
+    
 }
 /* blur(5px */
 form {

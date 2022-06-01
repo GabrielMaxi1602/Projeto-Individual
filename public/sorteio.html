@@ -13,27 +13,28 @@
     <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
     <div class="nav_bar">
     <a href="sorteio.html">SORTEIO</a>
-    <a href="#">AGENTES</a>
+    <a href="agentes.html">AGENTES</a>
     <a href="sobre.html">SOBRE</a>
-    <a href="https://playvalorant.com/pt-br/download/" target="_blank" >DOWNLOAD</a>
+    <a href="index.html">HOME</a>
     </div>
-    <div class="caixa_button">
-    <button id="button_ent">ENTRAR</button>
-    <p style="font-size: 30px; margin-top: -4%;">|</p>
-    <button id="button_cad">CADASTRO</button>
+
+    <div class="caixa_infos">
+        Olá <span>USUARIO</span>
+        <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
+        VP:<span>0</span>
     </div>
+
 </header>
 <body>
     <div style="width: 1%;height:6.3vw;background-color:black;"></div>
     <div class="caixa_titulo">
         <p>BEM VINDO AO SORTEIO</p>
     </div>
-    <div class="caixa_foto_ss">
-        <p>Para conhecer as regras do<br>
+        <p class="paragrafo_regras">Para conhecer as regras do
           sorteio  clique em <u><a href="sobre.html">SOBRE</a></u></p>
-    </div>
+    
     <button id="botao_sortear" onclick="abrir_poupap()">
-    SORTEIO
+    JOGAR
 </button> 
 <div id="poupap" class="pop">
 
@@ -49,6 +50,14 @@
 </html>
 
 <script>
+
+    function ir_login(){
+        window.location.assign("login.html") 
+    }
+
+    function ir_cadastro(){
+        window.location.assign("cadastro.html") 
+    }
 
     function abrir_poupap(){
         poupap.style.display = 'flex'
@@ -70,27 +79,27 @@
         
 
         var lista_skin = [
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/faca_dragao.png" alt="0">', 
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/faca_oni.png" alt="1">', 
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/ghost_oceano_R.webp" alt="3">',
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/ghost_trevas_E.webp" alt="4">',
-        '<img style="width:40vw; margin-left:-7%; " src="../public/imgs_sorteio/marshal_dourada_E.webp" alt="5">', 
-        '<img style="width:40vw;  margin-left:-7%;" src="../public/imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
-        '<img style="width:40vw; margin-left:-7%;" src="../public/imgs_sorteio/operator_dourada_E.webp" alt="7">',
-        '<img style="width:40vw; margin-left:-7%;" src="../public/imgs_sorteio/operator_ion_R.webp" alt="8">',
-        '<img style="width:40vw; margin-left:-7%;" src="../public/imgs_sorteio/operator_sentinela_L.webp" alt="9">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/phaton_ion_R.webp" alt="11">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/phaton_oni_L.webp" alt="12">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/phaton_reyna_N.webp" alt="13">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/phaton_treva_L.webp" alt="14">',
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/sheriff_sakura_N.webp" alt="16">',
-        '<img style="margin-left:5%;" src="../public/imgs_sorteio/sherrif_ferrugem_R.webp" alt="17">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/vandal_dragao_L.png" alt="18">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/vandal_roxa_N.webp" alt="19">',
-        '<img style="width:35vw;" src="../public/imgs_sorteio/vandal_sentinela_E.webp" alt="20">'
+        '<img style="margin-left:12%;" src="../public/imgs_sorteio/faca_dragao.png" alt="0">', 
+        '<img style="margin-left:11%;" src="../public/imgs_sorteio/faca_oni.png" alt="1">', 
+        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
+        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_oceano_R.webp" alt="3">',
+        '<img style="margin-left:15%;" src="../public/imgs_sorteio/ghost_trevas_E.webp" alt="4">',
+        '<img style="width:40vw;  margin-left:15%; " src="../public/imgs_sorteio/marshal_dourada_E.webp" alt="5">', 
+        '<img style="width:40vw;  margin-left:15%;" src="../public/imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
+        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_dourada_E.webp" alt="7">',
+        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_ion_R.webp" alt="8">',
+        '<img style="width:40vw; margin-left:15%;" src="../public/imgs_sorteio/operator_sentinela_L.webp" alt="9">',
+        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
+        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_ion_R.webp" alt="11">',
+        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_oni_L.webp" alt="110">',
+        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_reyna_N.webp" alt="13">',
+        '<img style="width:35vw; margin-left:22%;" src="../public/imgs_sorteio/phaton_treva_L.webp" alt="14">',
+        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
+        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sheriff_sakura_N.webp" alt="16">',
+        '<img style="margin-left:25.5%;" src="../public/imgs_sorteio/sherrif_ferrugem_R.webp" alt="17">',
+        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_dragao_L.png" alt="18">',
+        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_roxa_N.webp" alt="19">',
+        '<img style="width:35vw; margin-left:24%;" src="../public/imgs_sorteio/vandal_sentinela_E.webp" alt="20">'
     ];
     
 

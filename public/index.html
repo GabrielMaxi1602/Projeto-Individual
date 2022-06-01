@@ -14,14 +14,14 @@
         <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
         <div class="nav_bar">
         <a href="sorteio.html">SORTEIO</a>
-        <a href="#">AGENTES</a>
+        <a href="agentes.html">AGENTES</a>
         <a href="sobre.html">SOBRE</a>
         <a href="https://playvalorant.com/pt-br/download/" target="_blank" >DOWNLOAD</a>
         </div>
         <div class="caixa_button">
-        <button id="button_ent">ENTRAR</button>
+        <button onclick="ir_login()" id="button_ent">ENTRAR</button>
         <p style="font-size: 30px; margin-top: -4%;">|</p>
-        <button id="button_cad">CADASTRO</button>
+        <button onclick="ir_cadastro()" id="button_cad">CADASTRO</button>
         </div>
     </header>
     <div style="width: 1%;height:6.3vw;background-color:black;"></div>
@@ -70,3 +70,13 @@
     </div>
 </footer>
 </html>
+
+<script>
+    function ir_login(){
+        window.location.assign("login.html") 
+    }
+
+    function ir_cadastro(){
+        window.location.assign("cadastro.html") 
+    }
+</script>

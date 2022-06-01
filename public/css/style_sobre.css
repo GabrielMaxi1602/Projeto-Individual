@@ -1,0 +1,140 @@
+@import url(https://lolstatic-a.akamaihd.net/webfonts/live/css/valorant/fonts.css);
+
+*{
+    margin: 0.01%;
+    padding: 0%;
+}
+
+body{
+    width: 100vw;
+    height: 99.9vh;
+    overflow-x: hidden;
+    background-image: url(../imgs/tela_jett_sobre.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header{
+    background-image: linear-gradient(to right,#000000 , #242424, #000000);
+    width: 100vw;
+    height: 13.3vh;
+    display: flex;
+    border-bottom: 3.5px solid #ff5252ef;
+    position: fixed;
+    
+}
+
+.nav_bar{
+    /* background-color: red; */
+    width: 40%;
+    height: 100%;
+    margin-left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header p{
+    font-family: 'DINNextW05-Bold';
+    color:white;
+}
+
+a{
+    text-decoration: none;
+    font-family: 'DINNextW05-Bold';
+    color:white; 
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.6s;
+}
+
+#logo{
+height: 100%;
+margin-top: -0.2%;
+    margin-left: 3%;
+}
+
+.caixa_infos{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    color: white;
+    font-family: 'DINNextW05-Bold';
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 7%;
+}
+
+
+header button{
+    background-color: #00000000;
+    height: 50%;
+    width: 50%;
+    border-radius: 100px;
+    color: white;
+    border: none;
+    font-family: 'DINNextW05-Bold';
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#button_cad{
+    margin-left: 3.6%;
+}
+
+#button_ent{
+    margin-left: -2%;
+}
+
+
+header a:hover{
+    color:#ff4848e8 ;
+    transition: 0.6s;
+    border-bottom: 2px solid #FF5252; 
+}
+
+header button:hover{
+    color:#ff4848e8 ;
+    transition: 0.6s;
+    
+}
+
+.caixa_introducao{
+    text-align: center;
+    background-color: #000000a1;
+    width: 96%;
+    height: 30%;
+    margin-top: 10%;
+    border: 2px solid #FF5252;
+    margin-left: 1.8%;
+    border-radius: 15px;
+}
+
+#opacityx p{
+    margin-top: 1%;
+    font-family: 'DINNextW05-Medium';
+    font-size: 35px;
+    text-shadow: #FF5252 2px 2px 2px;
+    
+}
+
+.caixa_introducao2{
+    text-align: center;
+    background-color: #000000a1;
+    width: 80%;
+    height: 25%;
+    margin-top: 8%;
+    border: 2px solid #FF5252;
+    margin-left: 9%;
+    border-radius: 15px;
+}
+
+#opacityx h1{
+    margin-top: 1%;
+    color: white;
+    font-family: 'DINNextW05-bold';
+    font-size: 35px;
+    text-shadow: #FF5252 2px 2px 2px;
+    
+}
