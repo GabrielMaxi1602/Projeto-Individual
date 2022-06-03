@@ -54,15 +54,211 @@
             <p>NEON</p>
             <p>SAGE</p>
             <p>SKYE</p>
+            <p>TODOS</p>
         </div>
     </div>
     <p class="h1_fundo">AGENTES</p>
     <div style="width: 90vw; height:1%; border-radius:10px; background-image:radial-gradient(circle,#ff5252,#ffffffbe,#ff5252); margin-left:4.4vw;"></div>
+
+    <p class="texto_for">Insira os agentes que você quer ver:</p>
+    <div class="caixa_for">
+        <input id="input_ver_agentes">
+        
+        <button onclick="cadastrarAgentes()" class="botao_cadastrar">Inserir</button>
+        
+    </div>
+    
+    <div style="width:100vw ;height: 100vh; overflow:hidden; background-image: linear-gradient(to right, #000000 , #020202e8, #000000); margin-top: 3.7%;">
+       
+        <button id="botao_exibir" onclick="exibir_agentes()">Exibir Agentes</button>
+        
+    
+        <div style="color: white;" id="teste"></div>
+    </div>
 </body>
 </html>
 
 <script>
+    posicao = Number(0)
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
+    
+    const lista_agentes = []
+    const detalhes = [
+        {nome: 'YORU', habilidade: 'PODER DEMONÍACO',funcao:'DUELISTA'},
+        {nome: 'RAZE', habilidade: 'BOMBAS',funcao:'DUELISTA'},
+        {nome: 'JETT', habilidade: 'SALTOS VELOZ',funcao:'DUELISTA'},
+        {nome: 'VIPER', habilidade: 'TOXINAS',funcao:'CONTROLADOR'},
+        {nome: 'KILLJOY', habilidade: 'AUTO-ENGRENAGENS',funcao:'SENTINELA'},
+        {nome: 'CHAMBER', habilidade: 'AUTO-ARMAS',funcao:'SENTINELA'},
+        {nome: 'OMEN', habilidade: 'PODER DAS SOMBRAS',funcao:'CONTROLADOR'},
+        {nome: 'SOVA', habilidade: 'ARCO E FLECHA',funcao:'INICIADOR'},
+        {nome: 'NEON', habilidade: 'SUPER VELOCIDADE',funcao:'DUELISTA'},
+        {nome: 'REYNA', habilidade: 'PODER ANCESTRAL',funcao:'DUELISTA'},
+        {nome: 'FADE', habilidade: 'PODER DO MEDO',funcao:'INICIADOR'},
+        {nome: 'CHYPER', habilidade: 'SUPER VISÃO',funcao:'SENTINELA'},
+        {nome: 'SKYE', habilidade: 'PODER DA SELVA',funcao:'INICIADOR'},
+        {nome: 'SAGE', habilidade: 'PODER DE CURA',funcao:'SENTINELA'},
+        {nome: 'ASTRA', habilidade: 'PODER GALÁCTICO',funcao:'CONTROLADOR'},
+        {nome: 'BRIMSTONE', habilidade: 'ARMAS DE GUERRA',funcao:'CONTROLADOR'},
+        {nome: 'KAY/O', habilidade: 'ROBÓTICO',funcao:'INICIADOR'},
+        {nome: 'BREACH', habilidade: 'BRAÇO BIÔNICO',funcao:'INICIADOR'},
+        {nome: 'PHOENIX', habilidade: 'PODER DO FOGO',funcao:'DUELISTA'}
+    ]
+        
+
+    function cadastrarAgentes() {
+        var nome_agente = (input_ver_agentes.value).toUpperCase()
+        var agente_cadastrado = false
+        
+        if(
+        nome_agente != "YORU" &&
+        nome_agente != "RAZE" &&
+        nome_agente != "JETT" &&
+        nome_agente != "VIPER" &&
+        nome_agente != "KILLJOY" &&
+        nome_agente != "CHAMBER" &&
+        nome_agente != "OMEN" &&
+        nome_agente != "SOVA" &&
+        nome_agente != "NEON" &&
+        nome_agente != "REYNA" &&
+        nome_agente != "FADE" &&
+        nome_agente != "CHYPER" &&
+        nome_agente != "SKYE" &&
+        nome_agente != "SAGE" &&
+        nome_agente != "ASTRA" &&
+        nome_agente != "BRIMSTONE" &&
+        nome_agente != "KAY/O" &&
+        nome_agente != "BREACH" &&
+        nome_agente != "PHOENIX" &&
+        nome_agente != "TODOS"
+        ){
+            alert('INSIRA UM NOME DE PERSONAGEM DA LISTA \u274C')
+        
+        }else{
+            for(let contador = 0 ; contador < lista_agentes.length ; contador++){
+            if(lista_agentes[contador] == nome_agente){
+                agente_cadastrado = true
+            }
+
+        }
+
+        if(agente_cadastrado == true){
+            alert('AGENTE JA CADASTRADO \u274C')
+        }else{
+            alert('AGENTE CADASTRADO COM SUCESSO! 	✅') 
+            lista_agentes.push((nome_agente))
+            
+        }
+        }    
+    }
+
+    function exibir_agentes(){
+        var nome_agente = (input_ver_agentes.value).toUpperCase()
+        teste.innerHTML = ""
+        for(var contador = 0; contador < lista_agentes.length ;contador++){
+            
+            
+            if(nome_agente == "YORU"){
+                teste.innerHTML += detalhes[0].nome + " "
+                teste.innerHTML += detalhes[0].habilidade + " "
+                teste.innerHTML += detalhes[0].funcao
+            }else if(nome_agente == "RAZE"){
+                teste.innerHTML += detalhes[1].nome + " "
+                teste.innerHTML += detalhes[1].habilidade + " "
+                teste.innerHTML += detalhes[1].funcao
+                
+            }else if(nome_agente == "JETT"){
+                teste.innerHTML += detalhes[2].nome + " "
+                teste.innerHTML += detalhes[2].habilidade + " "
+                teste.innerHTML += detalhes[2].funcao
+                
+            }else if(nome_agente == "VIPER"){
+                teste.innerHTML += detalhes[3].nome + " "
+                teste.innerHTML += detalhes[3].habilidade + " "
+                teste.innerHTML += detalhes[3].funcao
+                
+            }else if(nome_agente == "KILLJOY"){
+                teste.innerHTML += detalhes[4].nome + " "
+                teste.innerHTML += detalhes[4].habilidade + " "
+                teste.innerHTML += detalhes[4].funcao
+                    
+            }else if(nome_agente == "CHAMBER"){
+                teste.innerHTML += detalhes[5].nome + " "
+                teste.innerHTML += detalhes[5].habilidade + " "
+                teste.innerHTML += detalhes[5].funcao
+                
+            }else if(nome_agente == "OMEN"){
+                teste.innerHTML += detalhes[6].nome + " "
+                teste.innerHTML += detalhes[6].habilidade + " "
+                teste.innerHTML += detalhes[6].funcao
+                
+            }else if(nome_agente == "SOVA"){
+                teste.innerHTML += detalhes[7].nome + " "
+                teste.innerHTML += detalhes[7].habilidade + " "
+                teste.innerHTML += detalhes[7].funcao
+                
+            }else if(nome_agente == "NEON"){
+                teste.innerHTML += detalhes[8].nome + " "
+                teste.innerHTML += detalhes[8].habilidade + " "
+                teste.innerHTML += detalhes[8].funcao
+                
+            }else if(nome_agente == "REYNA"){
+                teste.innerHTML += detalhes[9].nome + " "
+                teste.innerHTML += detalhes[9].habilidade + " "
+                teste.innerHTML += detalhes[9].funcao
+                
+            }else if(nome_agente == "FADE"){
+                teste.innerHTML += detalhes[10].nome + " "
+                teste.innerHTML += detalhes[10].habilidade + " "
+                teste.innerHTML += detalhes[10].funcao
+                
+            }else if(nome_agente == "CHYPER"){
+                teste.innerHTML += detalhes[11].nome + " "
+                teste.innerHTML += detalhes[11].habilidade + " "
+                teste.innerHTML += detalhes[11].funcao
+                
+            }else if(nome_agente == "SKYE"){
+                teste.innerHTML += detalhes[12].nome + " "
+                teste.innerHTML += detalhes[12].habilidade + " "
+                teste.innerHTML += detalhes[12].funcao + " "
+                                
+            }else if(nome_agente == "SAGE"){
+                teste.innerHTML += detalhes[13].nome + " "
+                teste.innerHTML += detalhes[13].habilidade + " "
+                teste.innerHTML += detalhes[13].funcao
+                
+            }else if(nome_agente == "ASTRA"){
+                teste.innerHTML += detalhes[14].nome + " "
+                teste.innerHTML += detalhes[14].habilidade + " "
+                teste.innerHTML += detalhes[14].funcao
+                
+            }else if(nome_agente == "BRIMSTONE"){
+                teste.innerHTML += detalhes[15].nome + " "
+                teste.innerHTML += detalhes[15].habilidade + " "
+                teste.innerHTML += detalhes[15].funcao
+                
+            }else if(nome_agente == "KAY/O"){
+                teste.innerHTML += detalhes[16].nome + " "
+                teste.innerHTML += detalhes[16].habilidade + " "
+                teste.innerHTML += detalhes[16].funcao
+                
+            }else if(nome_agente == "BREACH"){
+                teste.innerHTML += detalhes[17].nome + " "
+                teste.innerHTML += detalhes[17].habilidade + " "
+                teste.innerHTML += detalhes[17].funcao
+                
+            }else if(nome_agente == "PHOENIX"){
+                teste.innerHTML += detalhes[18].nome + " "
+                teste.innerHTML += detalhes[18].habilidade  + " "
+                teste.innerHTML += detalhes[18].funcao
+                
+            }
+        
+            
+        }            
+           
+        
+    }
 </script>
-<!-- ffffffbe -->
+

@@ -96,7 +96,7 @@
             '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_sentinela_L.webp" alt="9">',
             '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/pathon_glithpop_E.webp" alt="10">',
             '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_ion_R.webp" alt="11">',
-            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_oni_L.webp" alt="110">',
+            '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_oni_L.webp" alt="12">',
             '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_reyna_N.webp" alt="13">',
             '<img style="width:35vw; margin-left:22%;" src="./imgs_sorteio/phaton_treva_L.webp" alt="14">',
             '<img style="margin-left:25.5%;" src="./imgs_sorteio/sheriff_bosque_R.webp" alt="15">',
@@ -212,7 +212,7 @@
         setTimeout(function () {
             botao_sortear.disabled = false
         }, 1000);
-    }
+    }   
 
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
@@ -268,5 +268,42 @@
         }
 
     }
-    
+
+
+    var fk_skin = ""
+    function sorteio_usuario() {
+
+        
+    fetch("/usuarios/sorteio_usuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fk_usuarioServer: sessionStorage.ID_USUARIO,
+                fk_skinServer: fk_skin
+                 
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+            
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location = "dashboard.html";
+                }, "2000")
+                
+                
+            } else {
+                throw ("Houve um erro ao tentar atualizar grafico de classes");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           
+        });
+
+       
+    }
 </script>

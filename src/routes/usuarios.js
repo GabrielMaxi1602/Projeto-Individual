@@ -24,4 +24,8 @@ router.post("/jogar", function (req, res) {
     usuarioController.jogar(req, res);
 });
 
+router.post("/sorteio_usuario", function (req, res) {
+    usuarioController.sorteio_usuario(req, res);
+});
+
 module.exports = router;
