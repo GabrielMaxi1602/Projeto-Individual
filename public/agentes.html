@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <title>AGENTES</title>
     <link rel="stylesheet" href="css/style_agentes.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
 </head>
+
 <body>
     <header>
         <div style="width: 1px; height:12vh;"></div>
@@ -18,8 +21,9 @@
             <a href="agentes.html">AGENTES</a>
             <a href="sobre.html">SOBRE</a>
             <a href="index.html">HOME</a>
+            <a href="dashboard.html">DASHBOARD</a>
         </div>
-        
+
         <div class="caixa_infos">
             Olá <span id="span_usuario">USUARIO</span>
             <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
@@ -58,207 +62,326 @@
         </div>
     </div>
     <p class="h1_fundo">AGENTES</p>
-    <div style="width: 90vw; height:1%; border-radius:10px; background-image:radial-gradient(circle,#ff5252,#ffffffbe,#ff5252); margin-left:4.4vw;"></div>
+    <div
+        style="width: 90vw; height:1%; border-radius:10px; background-image:radial-gradient(circle,#ff5252,#ffffffbe,#ff5252); margin-left:4.4vw;">
+    </div>
 
     <p class="texto_for">Insira os agentes que você quer ver:</p>
     <div class="caixa_for">
         <input id="input_ver_agentes">
-        
+
         <button onclick="cadastrarAgentes()" class="botao_cadastrar">Inserir</button>
-        
+
     </div>
-    
-    <div style="width:100vw ;height: 100vh; overflow:hidden; background-image: linear-gradient(to right, #000000 , #020202e8, #000000); margin-top: 3.7%;">
-       
+
+    <div
+        style="width:100vw ; display: flex; flex-direction: column; background-image: linear-gradient(to right, #000000 , #020202e8, #000000); margin-top: 3.7%;">
+
         <button id="botao_exibir" onclick="exibir_agentes()">Exibir Agentes</button>
-        
-    
-        <div style="color: white;" id="teste"></div>
+        <br>
+        <div id="prateleira_1">  </div>
     </div>
 </body>
+
 </html>
 
 <script>
-    posicao = Number(0)
+    let = posicao = Number(0)
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
-    
+
     const lista_agentes = []
+
     const detalhes = [
-        {nome: 'YORU', habilidade: 'PODER DEMONÍACO',funcao:'DUELISTA'},
-        {nome: 'RAZE', habilidade: 'BOMBAS',funcao:'DUELISTA'},
-        {nome: 'JETT', habilidade: 'SALTOS VELOZ',funcao:'DUELISTA'},
-        {nome: 'VIPER', habilidade: 'TOXINAS',funcao:'CONTROLADOR'},
-        {nome: 'KILLJOY', habilidade: 'AUTO-ENGRENAGENS',funcao:'SENTINELA'},
-        {nome: 'CHAMBER', habilidade: 'AUTO-ARMAS',funcao:'SENTINELA'},
-        {nome: 'OMEN', habilidade: 'PODER DAS SOMBRAS',funcao:'CONTROLADOR'},
-        {nome: 'SOVA', habilidade: 'ARCO E FLECHA',funcao:'INICIADOR'},
-        {nome: 'NEON', habilidade: 'SUPER VELOCIDADE',funcao:'DUELISTA'},
-        {nome: 'REYNA', habilidade: 'PODER ANCESTRAL',funcao:'DUELISTA'},
-        {nome: 'FADE', habilidade: 'PODER DO MEDO',funcao:'INICIADOR'},
-        {nome: 'CHYPER', habilidade: 'SUPER VISÃO',funcao:'SENTINELA'},
-        {nome: 'SKYE', habilidade: 'PODER DA SELVA',funcao:'INICIADOR'},
-        {nome: 'SAGE', habilidade: 'PODER DE CURA',funcao:'SENTINELA'},
-        {nome: 'ASTRA', habilidade: 'PODER GALÁCTICO',funcao:'CONTROLADOR'},
-        {nome: 'BRIMSTONE', habilidade: 'ARMAS DE GUERRA',funcao:'CONTROLADOR'},
-        {nome: 'KAY/O', habilidade: 'ROBÓTICO',funcao:'INICIADOR'},
-        {nome: 'BREACH', habilidade: 'BRAÇO BIÔNICO',funcao:'INICIADOR'},
-        {nome: 'PHOENIX', habilidade: 'PODER DO FOGO',funcao:'DUELISTA'}
+        { nome: 'YORU', habilidade: 'PODER DEMONÍACO', funcao: 'DUELISTA' },
+        { nome: 'RAZE', habilidade: 'BOMBAS', funcao: 'DUELISTA' },
+        { nome: 'JETT', habilidade: 'SALTOS VELOZ', funcao: 'DUELISTA' },
+        { nome: 'VIPER', habilidade: 'TOXINAS', funcao: 'CONTROLADOR' },
+        { nome: 'KILLJOY', habilidade: 'AUTO-ENGRENAGENS', funcao: 'SENTINELA' },
+        { nome: 'CHAMBER', habilidade: 'AUTO-ARMAS', funcao: 'SENTINELA' },
+        { nome: 'OMEN', habilidade: 'PODER DAS SOMBRAS', funcao: 'CONTROLADOR' },
+        { nome: 'SOVA', habilidade: 'ARCO E FLECHA', funcao: 'INICIADOR' },
+        { nome: 'NEON', habilidade: 'SUPER VELOCIDADE', funcao: 'DUELISTA' },
+        { nome: 'REYNA', habilidade: 'PODER ANCESTRAL', funcao: 'DUELISTA' },
+        { nome: 'FADE', habilidade: 'PODER DO MEDO', funcao: 'INICIADOR' },
+        { nome: 'CHYPER', habilidade: 'SUPER VISÃO', funcao: 'SENTINELA' },
+        { nome: 'SKYE', habilidade: 'PODER DA SELVA', funcao: 'INICIADOR' },
+        { nome: 'SAGE', habilidade: 'PODER DE CURA', funcao: 'SENTINELA' },
+        { nome: 'ASTRA', habilidade: 'PODER GALÁCTICO', funcao: 'CONTROLADOR' },
+        { nome: 'BRIMSTONE', habilidade: 'ARMAS DE GUERRA', funcao: 'CONTROLADOR' },
+        { nome: 'KAY/O', habilidade: 'ROBÓTICO', funcao: 'INICIADOR' },
+        { nome: 'BREACH', habilidade: 'BRAÇO BIÔNICO', funcao: 'INICIADOR' },
+        { nome: 'PHOENIX', habilidade: 'PODER DO FOGO', funcao: 'DUELISTA' }
     ]
-        
+
+    const img_agentes = [
+
+    ]
+
 
     function cadastrarAgentes() {
         var nome_agente = (input_ver_agentes.value).toUpperCase()
         var agente_cadastrado = false
-        
-        if(
-        nome_agente != "YORU" &&
-        nome_agente != "RAZE" &&
-        nome_agente != "JETT" &&
-        nome_agente != "VIPER" &&
-        nome_agente != "KILLJOY" &&
-        nome_agente != "CHAMBER" &&
-        nome_agente != "OMEN" &&
-        nome_agente != "SOVA" &&
-        nome_agente != "NEON" &&
-        nome_agente != "REYNA" &&
-        nome_agente != "FADE" &&
-        nome_agente != "CHYPER" &&
-        nome_agente != "SKYE" &&
-        nome_agente != "SAGE" &&
-        nome_agente != "ASTRA" &&
-        nome_agente != "BRIMSTONE" &&
-        nome_agente != "KAY/O" &&
-        nome_agente != "BREACH" &&
-        nome_agente != "PHOENIX" &&
-        nome_agente != "TODOS"
-        ){
+
+        if (
+            nome_agente != "YORU" &&
+            nome_agente != "RAZE" &&
+            nome_agente != "JETT" &&
+            nome_agente != "VIPER" &&
+            nome_agente != "KILLJOY" &&
+            nome_agente != "CHAMBER" &&
+            nome_agente != "OMEN" &&
+            nome_agente != "SOVA" &&
+            nome_agente != "NEON" &&
+            nome_agente != "REYNA" &&
+            nome_agente != "FADE" &&
+            nome_agente != "CHYPER" &&
+            nome_agente != "SKYE" &&
+            nome_agente != "SAGE" &&
+            nome_agente != "ASTRA" &&
+            nome_agente != "BRIMSTONE" &&
+            nome_agente != "KAY/O" &&
+            nome_agente != "BREACH" &&
+            nome_agente != "PHOENIX" &&
+            nome_agente != "TODOS"
+        ) {
             alert('INSIRA UM NOME DE PERSONAGEM DA LISTA \u274C')
-        
-        }else{
-            for(let contador = 0 ; contador < lista_agentes.length ; contador++){
-            if(lista_agentes[contador] == nome_agente){
-                agente_cadastrado = true
+
+        } else {
+            for (let contador = 0; contador < lista_agentes.length; contador++) {
+                if (lista_agentes[contador] == nome_agente) {
+                    agente_cadastrado = true
+                }
+
             }
 
-        }
+            if (agente_cadastrado == true) {
+                alert('AGENTE JA CADASTRADO \u274C')
+            } else {
+                alert('AGENTE CADASTRADO COM SUCESSO! 	✅')
+                lista_agentes.push(nome_agente)
 
-        if(agente_cadastrado == true){
-            alert('AGENTE JA CADASTRADO \u274C')
-        }else{
-            alert('AGENTE CADASTRADO COM SUCESSO! 	✅') 
-            lista_agentes.push((nome_agente))
-            
+            }
         }
-        }    
     }
 
-    function exibir_agentes(){
-        var nome_agente = (input_ver_agentes.value).toUpperCase()
-        teste.innerHTML = ""
-        for(var contador = 0; contador < lista_agentes.length ;contador++){
-            
-            
-            if(nome_agente == "YORU"){
-                teste.innerHTML += detalhes[0].nome + " "
-                teste.innerHTML += detalhes[0].habilidade + " "
-                teste.innerHTML += detalhes[0].funcao
-            }else if(nome_agente == "RAZE"){
-                teste.innerHTML += detalhes[1].nome + " "
-                teste.innerHTML += detalhes[1].habilidade + " "
-                teste.innerHTML += detalhes[1].funcao
-                
-            }else if(nome_agente == "JETT"){
-                teste.innerHTML += detalhes[2].nome + " "
-                teste.innerHTML += detalhes[2].habilidade + " "
-                teste.innerHTML += detalhes[2].funcao
-                
-            }else if(nome_agente == "VIPER"){
-                teste.innerHTML += detalhes[3].nome + " "
-                teste.innerHTML += detalhes[3].habilidade + " "
-                teste.innerHTML += detalhes[3].funcao
-                
-            }else if(nome_agente == "KILLJOY"){
-                teste.innerHTML += detalhes[4].nome + " "
-                teste.innerHTML += detalhes[4].habilidade + " "
-                teste.innerHTML += detalhes[4].funcao
+    function exibir_agentes() {
+        let c = 0
+
+        prateleira_1.innerHTML = ""
+        for (var contador = 0; contador < lista_agentes.length; contador++) {
+
+            var card = document.createElement('div')
+            var cardsub = document.createElement('div')
+            var card1 = document.createElement('span')
+            var card2 = document.createElement('span')
+            var card3 = document.createElement('span')
+
+            prateleira_1.appendChild(card)
+            card.appendChild(card1)
+            card.appendChild(card2)
+            card.appendChild(card3)
+
+            card.className = 'cards'
+
+            if (lista_agentes[contador] == "YORU") {
+                card1.innerHTML +=detalhes[0].nome + " "
+                card2.innerHTML += detalhes[0].habilidade + " "
+                card3.innerHTML += detalhes[0].funcao
+                c++
+                if(c >= 4){
                     
-            }else if(nome_agente == "CHAMBER"){
-                teste.innerHTML += detalhes[5].nome + " "
-                teste.innerHTML += detalhes[5].habilidade + " "
-                teste.innerHTML += detalhes[5].funcao
-                
-            }else if(nome_agente == "OMEN"){
-                teste.innerHTML += detalhes[6].nome + " "
-                teste.innerHTML += detalhes[6].habilidade + " "
-                teste.innerHTML += detalhes[6].funcao
-                
-            }else if(nome_agente == "SOVA"){
-                teste.innerHTML += detalhes[7].nome + " "
-                teste.innerHTML += detalhes[7].habilidade + " "
-                teste.innerHTML += detalhes[7].funcao
-                
-            }else if(nome_agente == "NEON"){
-                teste.innerHTML += detalhes[8].nome + " "
-                teste.innerHTML += detalhes[8].habilidade + " "
-                teste.innerHTML += detalhes[8].funcao
-                
-            }else if(nome_agente == "REYNA"){
-                teste.innerHTML += detalhes[9].nome + " "
-                teste.innerHTML += detalhes[9].habilidade + " "
-                teste.innerHTML += detalhes[9].funcao
-                
-            }else if(nome_agente == "FADE"){
-                teste.innerHTML += detalhes[10].nome + " "
-                teste.innerHTML += detalhes[10].habilidade + " "
-                teste.innerHTML += detalhes[10].funcao
-                
-            }else if(nome_agente == "CHYPER"){
-                teste.innerHTML += detalhes[11].nome + " "
-                teste.innerHTML += detalhes[11].habilidade + " "
-                teste.innerHTML += detalhes[11].funcao
-                
-            }else if(nome_agente == "SKYE"){
-                teste.innerHTML += detalhes[12].nome + " "
-                teste.innerHTML += detalhes[12].habilidade + " "
-                teste.innerHTML += detalhes[12].funcao + " "
-                                
-            }else if(nome_agente == "SAGE"){
-                teste.innerHTML += detalhes[13].nome + " "
-                teste.innerHTML += detalhes[13].habilidade + " "
-                teste.innerHTML += detalhes[13].funcao
-                
-            }else if(nome_agente == "ASTRA"){
-                teste.innerHTML += detalhes[14].nome + " "
-                teste.innerHTML += detalhes[14].habilidade + " "
-                teste.innerHTML += detalhes[14].funcao
-                
-            }else if(nome_agente == "BRIMSTONE"){
-                teste.innerHTML += detalhes[15].nome + " "
-                teste.innerHTML += detalhes[15].habilidade + " "
-                teste.innerHTML += detalhes[15].funcao
-                
-            }else if(nome_agente == "KAY/O"){
-                teste.innerHTML += detalhes[16].nome + " "
-                teste.innerHTML += detalhes[16].habilidade + " "
-                teste.innerHTML += detalhes[16].funcao
-                
-            }else if(nome_agente == "BREACH"){
-                teste.innerHTML += detalhes[17].nome + " "
-                teste.innerHTML += detalhes[17].habilidade + " "
-                teste.innerHTML += detalhes[17].funcao
-                
-            }else if(nome_agente == "PHOENIX"){
-                teste.innerHTML += detalhes[18].nome + " "
-                teste.innerHTML += detalhes[18].habilidade  + " "
-                teste.innerHTML += detalhes[18].funcao
-                
+                }
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+            } else if (lista_agentes[contador] == "RAZE") {
+                card1.innerHTML +=detalhes[1].nome + " "
+                card2.innerHTML += detalhes[1].habilidade + " "
+                card3.innerHTML += detalhes[1].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "JETT") {
+                card1.innerHTML +=detalhes[2].nome + " "
+                card2.innerHTML += detalhes[2].habilidade + " "
+                card3.innerHTML += detalhes[2].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "VIPER") {
+                card1.innerHTML +=detalhes[3].nome + " "
+                card2.innerHTML += detalhes[3].habilidade + " "
+                card3.innerHTML += detalhes[3].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "KILLJOY") {
+                card1.innerHTML +=detalhes[4].nome + " "
+                card2.innerHTML += detalhes[4].habilidade + " "
+                card3.innerHTML += detalhes[4].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "CHAMBER") {
+                card1.innerHTML +=detalhes[5].nome + " "
+                card2.innerHTML += detalhes[5].habilidade + " "
+                card3.innerHTML += detalhes[5].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "OMEN") {
+                card1.innerHTML +=detalhes[6].nome + " "
+                card2.innerHTML += detalhes[6].habilidade + " "
+                card3.innerHTML += detalhes[6].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "SOVA") {
+                card1.innerHTML +=detalhes[7].nome + " "
+                card2.innerHTML += detalhes[7].habilidade + " "
+                card3.innerHTML += detalhes[7].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "NEON") {
+                card1.innerHTML +=detalhes[8].nome + " "
+                card2.innerHTML += detalhes[8].habilidade + " "
+                card3.innerHTML += detalhes[8].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "REYNA") {
+                card1.innerHTML +=detalhes[9].nome + " "
+                card2.innerHTML += detalhes[9].habilidade + " "
+                card3.innerHTML += detalhes[9].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "FADE") {
+                card1.innerHTML +=detalhes[10].nome + " "
+                card2.innerHTML += detalhes[10].habilidade + " "
+                card3.innerHTML += detalhes[10].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "CHYPER") {
+                card1.innerHTML +=detalhes[11].nome + " "
+                card2.innerHTML += detalhes[11].habilidade + " "
+                card3.innerHTML += detalhes[11].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "SKYE") {
+                card1.innerHTML +=detalhes[12].nome + " "
+                card2.innerHTML += detalhes[12].habilidade + " "
+                card3.innerHTML += detalhes[12].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "SAGE") {
+                card1.innerHTML +=detalhes[13].nome + " "
+                card2.innerHTML += detalhes[13].habilidade + " "
+                card3.innerHTML += detalhes[13].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "ASTRA") {
+                card1.innerHTML +=detalhes[14].nome + " "
+                card2.innerHTML += detalhes[14].habilidade + " "
+                card3.innerHTML += detalhes[14].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "BRIMSTONE") {
+                card1.innerHTML +=detalhes[15].nome + " "
+                card2.innerHTML += detalhes[15].habilidade + " "
+                card3.innerHTML += detalhes[15].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "KAY/O") {
+                card1.innerHTML +=detalhes[16].nome + " "
+                card2.innerHTML += detalhes[16].habilidade + " "
+                card3.innerHTML += detalhes[16].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "BREACH") {
+                card1.innerHTML +=detalhes[17].nome + " "
+                card2.innerHTML += detalhes[17].habilidade + " "
+                card3.innerHTML += detalhes[17].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else if (lista_agentes[contador] == "PHOENIX") {
+                card1.innerHTML +=detalhes[18].nome + " "
+                card2.innerHTML += detalhes[18].habilidade + " "
+                card3.innerHTML += detalhes[18].funcao 
+                card.style.backgroundImage = 'url(imgs_sorteio/faca_oni.png)'
+                c++
+            } else {
+                div_jason.innerHTML += detalhes[0].nome + " "
+                div_jason.innerHTML += detalhes[0].habilidade + " "
+                div_jason.innerHTML += detalhes[0].funcao 
+
+                div_jason.innerHTML += detalhes[1].nome + " "
+                div_jason.innerHTML += detalhes[1].habilidade + " "
+                div_jason.innerHTML += detalhes[1].funcao 
+
+                div_jason.innerHTML += detalhes[2].nome + " "
+                div_jason.innerHTML += detalhes[2].habilidade + " "
+                div_jason.innerHTML += detalhes[2].funcao 
+
+                div_jason.innerHTML += detalhes[3].nome + " "
+                div_jason.innerHTML += detalhes[3].habilidade + " "
+                div_jason.innerHTML += detalhes[3].funcao 
+
+                div_jason.innerHTML += detalhes[4].nome + " "
+                div_jason.innerHTML += detalhes[4].habilidade + " "
+                div_jason.innerHTML += detalhes[4].funcao 
+
+                div_jason.innerHTML += detalhes[5].nome + " "
+                div_jason.innerHTML += detalhes[5].habilidade + " "
+                div_jason.innerHTML += detalhes[5].funcao 
+
+                div_jason.innerHTML += detalhes[6].nome + " "
+                div_jason.innerHTML += detalhes[6].habilidade + " "
+                div_jason.innerHTML += detalhes[6].funcao 
+
+                div_jason.innerHTML += detalhes[7].nome + " "
+                div_jason.innerHTML += detalhes[7].habilidade + " "
+                div_jason.innerHTML += detalhes[7].funcao 
+
+                div_jason.innerHTML += detalhes[8].nome + " "
+                div_jason.innerHTML += detalhes[8].habilidade + " "
+                div_jason.innerHTML += detalhes[8].funcao 
+
+                div_jason.innerHTML += detalhes[9].nome + " "
+                div_jason.innerHTML += detalhes[9].habilidade + " "
+                div_jason.innerHTML += detalhes[9].funcao 
+
+                div_jason.innerHTML += detalhes[10].nome + " "
+                div_jason.innerHTML += detalhes[10].habilidade + " "
+                div_jason.innerHTML += detalhes[10].funcao 
+
+                div_jason.innerHTML += detalhes[11].nome + " "
+                div_jason.innerHTML += detalhes[11].habilidade + " "
+                div_jason.innerHTML += detalhes[11].funcao 
+
+                div_jason.innerHTML += detalhes[12].nome + " "
+                div_jason.innerHTML += detalhes[12].habilidade + " "
+                div_jason.innerHTML += detalhes[12].funcao 
+
+                div_jason.innerHTML += detalhes[13].nome + " "
+                div_jason.innerHTML += detalhes[13].habilidade + " "
+                div_jason.innerHTML += detalhes[13].funcao 
+
+                div_jason.innerHTML += detalhes[14].nome + " "
+                div_jason.innerHTML += detalhes[14].habilidade + " "
+                div_jason.innerHTML += detalhes[14].funcao 
+
+                div_jason.innerHTML += detalhes[15].nome + " "
+                div_jason.innerHTML += detalhes[15].habilidade + " "
+                div_jason.innerHTML += detalhes[15].funcao 
+
+                div_jason.innerHTML += detalhes[16].nome + " "
+                div_jason.innerHTML += detalhes[16].habilidade + " "
+                div_jason.innerHTML += detalhes[16].funcao 
+
+                div_jason.innerHTML += detalhes[17].nome + " "
+                div_jason.innerHTML += detalhes[17].habilidade + " "
+                div_jason.innerHTML += detalhes[17].funcao 
+
+                div_jason.innerHTML += detalhes[18].nome + " "
+                div_jason.innerHTML += detalhes[18].habilidade + " "
+                div_jason.innerHTML += detalhes[18].funcao 
             }
-        
-            
-        }            
-           
-        
+
+
+        }
+
+
     }
 </script>
-

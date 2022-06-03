@@ -26,9 +26,9 @@ header{
 
 .nav_bar{
     /* background-color: red; */
-    width: 40%;
+    width: 60%;
     height: 100%;
-    margin-left: 25%;
+    margin-left: 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -116,7 +116,8 @@ header button:hover{
 
 .caixa_titulo p{
     font-family: 'DINNextW05-Bold';
-    font-size: 87px;
+    font-size: 7vw; /* para 4g usar 7vw */
+
     padding: 1%;
     margin-left: 2.3%;
     color: #ffffff; 
@@ -245,4 +246,18 @@ header button:hover{
     text-shadow: #000000 2px 2px 2px ;    
     color: #ffffff;
     margin-left: -1%;    
+}
+
+#span_usuario{
+    font-size: 17px;
+    color: #ff5252;
+    text-transform: uppercase;
+}
+
+#span_vp{
+    font-size: 20px;
+    color: #ff5252;
+    text-transform: uppercase;
+    margin-left: -4%;
+    margin-top: -1%;
 }

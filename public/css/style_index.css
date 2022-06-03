@@ -23,9 +23,9 @@ header{
 
 .nav_bar{
     /* background-color: red; */
-    width: 40%;
+    width: 60%;
     height: 100%;
-    margin-left: 25%;
+    margin-left: 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;

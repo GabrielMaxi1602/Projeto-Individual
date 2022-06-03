@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style_cadastro.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <script src="JS/main_cadastro.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
 </head>
 
 <body>
@@ -28,7 +27,7 @@
             <div class="caixa_dois">
                 <p>Senha:</p><input id="input_senha" placeholder="*******">
                     <p>Confirmar senha:</p><input id="input_confirmar_senha" placeholder="*******">
-                    <p>CEP:</p><input  id="input_cep" placeholder="08450-320">
+                    <p>CEP:</p><input onkeyup="viacep()"  id="input_cep" placeholder="08450-320">
                     <p>estado:</p><input id="input_estado" placeholder="xx">
                 </div>
             </div>
@@ -91,7 +90,7 @@
 
 
 
-        if(validacoes == 1) {
+        if(validacoes == 4) {
             
             // Enviando o valor da nova input
             fetch("/usuarios/cadastrar", {
