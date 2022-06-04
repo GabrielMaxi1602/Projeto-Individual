@@ -30,15 +30,24 @@
 
     </header>
 
-    <div style="height: 50vh;width:30vw;display: flex; flex-direction: column;">
+    <div style="font-size: 40px; color: white; font-family: anton; margin-left: 10%; height: 10vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around; text-shadow: black 4px 4px 4px;">
+    <div style="margin-left: 2%;">Quantidade de Armas</div>
+    <div style="margin-left: 12%;">Quantidade de Classes</div>
+    </div>
 
-        <div>
+    <div style=" margin-left: 10%; height: 40vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around;">
+
+        <div style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589);">
             <canvas id="canvas_grafico"></canvas>
         </div>
-        <div>
+        <div style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589); margin-left: 10%;">
             <canvas id="canvas_grafico2"></canvas>
         </div>
         
+    </div>
+     <span style="top: 19%;left: 49.8%; border-radius:10px; position: absolute; height: 50vh; width: 0.5%; background-color:#ff5252;"></span>
+    <div
+        style="margin-top: 5%; width: 90vw; height:1%; border-radius:10px; background-color:#ff5252; margin-left:4.4vw;">
     </div>
 </body>
 
@@ -119,11 +128,12 @@
             datasets: [{
                 data: [],
                 backgroundColor: [
-                    '#AB4E68',
-                    '#ec9c47',
-                    '#0C1618',
-                    '#32936F',
-                    '#2274A5'
+                '#ff0000',
+                '#850fca',
+                '#1900ff',
+                '#ff6600',
+                '#e5ff00',
+                '#000000'
                 ],
                 hoverOffset: 4
             }]
@@ -155,8 +165,9 @@
         }
 
         const config = {
-            type: 'pie',
+            type: 'doughnut',
             data: data,
+            color:'white'
         };
 
         const myChart = new Chart(
@@ -220,13 +231,15 @@
         const data = {
             labels: [],
             datasets: [{
+                color:'#ff5252',
                 data: [],
+                
                 backgroundColor: [
-                    '#AB4E68',
-                    '#ec9c47',
-                    '#0C1618',
-                    '#32936F'
-                   
+                '#ff6600',
+                    '#ca0fa2',
+                    '#3520f3',
+                    '#b6b6b6',
+                    '#2274A5'
                 ],
                 hoverOffset: 4
             }]
@@ -249,7 +262,7 @@
         }
         
         const config = {
-            type: 'pie',
+            type: 'doughnut',
             data: data,
         };
 

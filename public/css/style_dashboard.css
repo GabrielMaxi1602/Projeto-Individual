@@ -7,7 +7,7 @@
 
 body{
     width: 100vw;
-    height: 100vh;
+    height: 99vh;
     overflow-x: hidden;
     background-image: url(../imgs/fundo_dash.jpg);
     background-size: cover;
@@ -16,11 +16,11 @@ body{
 
 header{
     background-image: linear-gradient(to right,#000000 , #242424, #000000);
-    width: 98.7vw;
+    width: 100vw;
     height: 13.3vh;
     display: flex;
     border-bottom: 3.5px solid #ff5252ef;
-    position: fixed;
+    
     
 }
 
