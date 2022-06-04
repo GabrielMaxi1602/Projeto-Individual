@@ -89,11 +89,33 @@ function deletar(idAviso) {
     return database.executar(instrucao);
 }
 
+function pegar_tipo_arma() {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pegar_tipo_arma(): ");
+    var instrucao = `
+    select tipo , count(fk_skin) as 'qtd_drop' from skin as sk join resultado_skin as rs on idSkin = fk_skin group by tipo;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function pegar_tipo_classe() {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pegar_tipo_classe(): ");
+    var instrucao = `
+    select s.classe as 'Classe' , count(rs.fk_skin) as 'Quantidade' from skin as s
+    join resultado_skin as rs on s.idSkin = rs.fk_skin group by s.classe;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     listar,
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    pegar_tipo_arma,
+    pegar_tipo_classe
 }

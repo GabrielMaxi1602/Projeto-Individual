@@ -64,24 +64,30 @@
     function ir_cadastro() {
         window.location.assign("cadastro.html")
     }
-
+    
     function abrir_poupap() {
+        if(sessionStorage.VP < 20){
+            alert('saldo insuficiente')
+        }else{
         poupap.style.display = 'flex'
         tela_opacity.style.display = 'flex'
-        sortear()
-
+        jogar()
+        }
     }
-
+    
     function fechar_poupap() {
         poupap.style.display = 'none'
         tela_opacity.style.display = 'none'
+        /* setTimeout(function(){
+            window.location.reload()
+        },500) */
+            
     }
-
+    
+    
     function sortear() {
         var sorteio_classes = Math.floor(Math.random(1) * 10)
         var sorteio_skin = Math.floor(Math.random(1) * 10)
-
-
 
 
         var lista_skin = [
@@ -90,8 +96,8 @@
             '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_megpunk_N.webp" alt="2">',
             '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_oceano_R.webp" alt="3">',
             '<img style="margin-left:15%;" src="./imgs_sorteio/ghost_trevas_E.webp" alt="4">',
-            '<img style="width:40vw;  margin-left:15%; " src="./imgs_sorteio/marshal_dourada_E.webp" alt="5">',
-            '<img style="width:40vw;  margin-left:15%;" src="./imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
+            '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/marshal_dourada_E.webp" alt="5">',
+            '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/mashall_espinhos_N.webp" alt="6">',
             '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_dourada_E.webp" alt="7">',
             '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_ion_R.webp" alt="8">',
             '<img style="width:40vw; margin-left:15%;" src="./imgs_sorteio/operator_sentinela_L.webp" alt="9">',
@@ -117,10 +123,12 @@
                 resultado_skin.innerHTML = lista_skin[0]
                 poupap.style.border = `4px solid #eeff00`
                 poupap.style.boxShadow = `#eeff00 2px 2px 60px 2px  `
+                sorteio_usuario(1)
             } else {
                 resultado_skin.innerHTML = lista_skin[1]
                 poupap.style.border = `4px solid #eeff00`
                 poupap.style.boxShadow = `#eeff00 2px 2px 60px 2px`
+                sorteio_usuario(2)
             }
         } else if (sorteio_classes == 1) {
 
@@ -128,91 +136,107 @@
                 resultado_skin.innerHTML = lista_skin[9]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
+                sorteio_usuario(3)
             } else if (sorteio_skin <= 5.0) {
                 resultado_skin.innerHTML = lista_skin[12]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
+                sorteio_usuario(4)
             } else if (sorteio_skin <= 7.5) {
                 resultado_skin.innerHTML = lista_skin[14]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px`
+                sorteio_usuario(5)
             } else {
                 resultado_skin.innerHTML = lista_skin[18]
                 poupap.style.border = `4px solid #ff6600`
                 poupap.style.boxShadow = `#ff6600 2px 2px 60px 2px `
+                sorteio_usuario(6)
             }
         } else if (sorteio_classes <= 3) {
             if (sorteio_skin <= 2) {
                 resultado_skin.innerHTML = lista_skin[4]
                 poupap.style.border = `4px solid #ca0fa2`
                 poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
+                sorteio_usuario(7)
             } else if (sorteio_skin <= 4) {
                 resultado_skin.innerHTML = lista_skin[5]
                 poupap.style.border = `4px solid #ca0fa2`
                 poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+                sorteio_usuario(8)
             } else if (sorteio_skin <= 6) {
                 resultado_skin.innerHTML = lista_skin[7]
                 poupap.style.border = `4px solid #ca0fa2`
                 poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
+                sorteio_usuario(10)
             } else if (sorteio_skin <= 8) {
                 resultado_skin.innerHTML = lista_skin[10]
                 poupap.style.border = `4px solid #ca0fa2`
                 poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+                sorteio_usuario(9)
             } else {
                 resultado_skin.innerHTML = lista_skin[20]
                 poupap.style.border = `4px solid #ca0fa2`
                 poupap.style.boxShadow = `#ca0fa2 2px 2px 60px 2px  `
+                sorteio_usuario(11)
             }
         } else if (sorteio_classes <= 6) {
             if (sorteio_skin <= 2) {
                 resultado_skin.innerHTML = lista_skin[3]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                sorteio_usuario(12)
             } else if (sorteio_skin <= 4) {
                 resultado_skin.innerHTML = lista_skin[8]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                sorteio_usuario(13)
             } else if (sorteio_skin <= 6) {
                 resultado_skin.innerHTML = lista_skin[11]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                sorteio_usuario(14)
             } else if (sorteio_skin <= 8) {
                 resultado_skin.innerHTML = lista_skin[15]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                sorteio_usuario(15)
             } else {
                 resultado_skin.innerHTML = lista_skin[17]
                 poupap.style.border = `4px solid #3520f3`
                 poupap.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                sorteio_usuario(16)
             }
         } else if (sorteio_classes <= 10) {
             if (sorteio_skin <= 2) {
                 resultado_skin.innerHTML = lista_skin[2]
                 poupap.style.border = `4px solid #b6b6b6`
                 poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                sorteio_usuario(17)
             } else if (sorteio_skin <= 4) {
                 resultado_skin.innerHTML = lista_skin[6]
                 poupap.style.border = `4px solid #b6b6b6`
                 poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                sorteio_usuario(18)
             } else if (sorteio_skin <= 6) {
                 resultado_skin.innerHTML = lista_skin[13]
                 poupap.style.border = `4px solid #b6b6b6`
                 poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                sorteio_usuario(19)
             } else if (sorteio_skin <= 8) {
                 resultado_skin.innerHTML = lista_skin[16]
                 poupap.style.border = `4px solid #b6b6b6`
                 poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                sorteio_usuario(20)
             } else {
                 resultado_skin.innerHTML = lista_skin[19]
                 poupap.style.border = `4px solid #b6b6b6`
                 poupap.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                sorteio_usuario(21)
             }
         }
-        botao_sortear.disabled = true
-        jogar()
-        setTimeout(function () {
-            botao_sortear.disabled = false
-        }, 1000);
+        
+       
     }   
 
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
@@ -220,18 +244,19 @@
 
     function jogar() {
 
+
         var idusuario = sessionStorage.ID_USUARIO;
         var vps = Number(sessionStorage.VP) - 20;
 
-        if(vps < 20){
-            alert('Saldo insuficente :(')
-        }else{
+        
         sessionStorage.VP = vps;
         span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
         span_vp.innerHTML = sessionStorage.VP
+        alert('cachorro')
+        sortear()
         
 
-            fetch("/usuarios/jogar", {
+            fetch("/usuarios/jogar",{cache:`no-store`} ,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -249,9 +274,6 @@
                     resposta.json().then(json => {
                         console.log(json);
                         console.log(JSON.stringify(json));
-
-
-                        
                     });
 
                 } else {
@@ -268,13 +290,12 @@
             })
         }
 
-    }
+    
 
 
-    var fk_skin = ""
-    function sorteio_usuario() {
+    function sorteio_usuario(resultado) {
 
-        
+        var skin = resultado
     fetch("/usuarios/sorteio_usuario", {
                 method: "POST",
                 headers: {
@@ -283,8 +304,8 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                fk_usuarioServer: sessionStorage.ID_USUARIO,
-                fk_skinServer: fk_skin
+                /* fk_usuarioServer: sessionStorage.ID_USUARIO, */
+                fk_skinServer: skin
                  
             })
         }).then(function (resposta) {
@@ -292,11 +313,9 @@
             console.log("resposta: ", resposta);
             
             if (resposta.ok) {
-                setTimeout(() => {
-                    window.location = "dashboard.html";
-                }, "2000")
                 
-                
+      
+                               
             } else {
                 throw ("Houve um erro ao tentar atualizar grafico de classes");
             }

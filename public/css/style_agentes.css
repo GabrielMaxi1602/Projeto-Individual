@@ -230,8 +230,8 @@ header button:hover{
 
 .cards{
     background-color: red;
-    height: 50vh;
-    width: 20vw;
+    height: 390px;
+    width: 230px;
     border-radius: 15px;
     text-align: center;
     display: flex;
@@ -242,6 +242,9 @@ header button:hover{
     font-weight: bold;
     margin-top: 20px;
 }
+
+/* height: 440px;
+    width: 260px; */
 
 
 #prateleira_1{

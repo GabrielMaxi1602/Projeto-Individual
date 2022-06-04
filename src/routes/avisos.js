@@ -15,6 +15,14 @@ router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
 
+router.get("/pegar_tipo_arma", function (req, res) {
+    avisoController.pegar_tipo_arma(req, res);
+});
+
+router.get("/pegar_tipo_classe", function (req, res) {
+    avisoController.pegar_tipo_classe(req, res);
+});
+
 router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });

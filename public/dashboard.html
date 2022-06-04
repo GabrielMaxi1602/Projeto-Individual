@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,9 @@
     <title>DASHBOARD</title>
     <link rel="stylesheet" href="css/style_dashboard.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
+
 <body>
     <header>
         <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
@@ -16,22 +19,246 @@
             <a href="agentes.html">AGENTES</a>
             <a href="sobre.html">SOBRE</a>
             <a href="index.html">HOME</a>
-            <a href="dashboard.html" >DASHBOARD</a>
+            <a href="dashboard.html">DASHBOARD</a>
         </div>
-    
+
         <div class="caixa_infos">
             Olá <span id="span_usuario">USUARIO</span>
             <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
             VP:<span id="span_vp">0</span>
         </div>
-    
+
     </header>
-    
+
+    <div style="height: 50vh;width:30vw;display: flex; flex-direction: column;">
+
+        <div>
+            <canvas id="canvas_grafico"></canvas>
+        </div>
+        <div>
+            <canvas id="canvas_grafico2"></canvas>
+        </div>
+        
+    </div>
 </body>
+
 </html>
 
 <script>
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
+    var qtd_arma = 0
+    var nome_arma = ""
+    var qtd_arma1 = 0
+    var nome_arma1 = ""
+    var qtd_arma2 = 0
+    var nome_arma2 = ""
+    var qtd_arma3 = 0
+    var nome_arma3 = ""
+    var qtd_arma4 = 0
+    var nome_arma4 = ""
+    var qtd_arma5 = 0
+    var nome_arma5 = ""
+    var qtd_arma6 = 0
+    var nome_arma6 = ""
 
+    function pegar_tipo_arma() {
+        fetch("/avisos/pegar_tipo_arma").then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    qtd_arma = resposta[0].qtd_drop;
+                    nome_arma = resposta[0].tipo;
+
+                    if (resposta[1]) {
+                        qtd_arma1 = resposta[1].qtd_drop;
+                        nome_arma1 = resposta[1].tipo;
+                    }
+                    if (resposta[2]) {
+                        qtd_arma2 = resposta[2].qtd_drop;
+                        nome_arma2 = resposta[2].tipo;
+                    }
+
+                    if (resposta[3]) {
+                        qtd_arma3 = resposta[3].qtd_drop;
+                        nome_arma3 = resposta[3].tipo;
+                    }
+
+                    if (resposta[4]) {
+                        qtd_arma4 = resposta[4].qtd_drop;
+                        nome_arma4 = resposta[4].tipo;
+                    }
+
+                    if (resposta[5]) {
+                        qtd_arma5 = resposta[5].qtd_drop;
+                        nome_arma5 = resposta[5].tipo;
+                    }
+
+                    if (resposta[6]) {
+                        qtd_arma6 = resposta[6].qtd_drop;
+                        nome_arma6 = resposta[6].tipo;
+                    }
+
+
+                    grafico1();
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function grafico1() {
+
+        const data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    '#AB4E68',
+                    '#ec9c47',
+                    '#0C1618',
+                    '#32936F',
+                    '#2274A5'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        data.labels.push(nome_arma1);
+        data.datasets[0].data.push(qtd_arma1);
+
+        if (qtd_arma2 > 0) {
+            data.labels.push(nome_arma2);
+            data.datasets[0].data.push(qtd_arma2);
+        }
+        if (qtd_arma3 > 0) {
+            data.labels.push(nome_arma3);
+            data.datasets[0].data.push(qtd_arma3);
+        }
+        if (qtd_arma4 > 0) {
+            data.labels.push(nome_arma4);
+            data.datasets[0].data.push(qtd_arma4);
+        }
+        if (qtd_arma5 > 0) {
+            data.labels.push(nome_arma5);
+            data.datasets[0].data.push(qtd_arma5);
+        }
+        
+        if (qtd_arma6 > 0) {
+            data.labels.push(nome_arma6);
+            data.datasets[0].data.push(qtd_arma6);
+        }
+
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+
+        const myChart = new Chart(
+            document.getElementById('canvas_grafico'),
+            config
+        );
+
+    }
+
+    pegar_tipo_arma()
+
+    /* ----------------------------------------------------------------------------------------------------- */
+
+    var qtd_skin = 0
+    var classe = ""
+    var qtd_skin1 = 0
+    var classe1 = ""
+    var qtd_skin2 = 0
+    var classe2 = ""
+    var qtd_skin3 = 0
+    var classe3 = ""
+    
+
+    function pegar_tipo_classe() {
+        fetch("/avisos/pegar_tipo_classe").then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    qtd_skin = resposta[0].Quantidade;
+                    classe = resposta[0].Classe;
+
+                    if (resposta[1]) {
+                        qtd_skin1 = resposta[1].Quantidade;
+                        classe1 = resposta[1].Classe;
+                    }
+                    if (resposta[2]) {
+                        qtd_skin2 = resposta[2].Quantidade;
+                        classe2 = resposta[2].Classe;
+                    }
+
+                    if (resposta[3]) {
+                        qtd_skin3 = resposta[3].Quantidade;
+                        classe3 = resposta[3].Classe;
+                    }
+
+                    
+                    grafico2();
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function grafico2() {
+
+        const data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    '#AB4E68',
+                    '#ec9c47',
+                    '#0C1618',
+                    '#32936F'
+                   
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        data.labels.push(classe);
+        data.datasets[0].data.push(qtd_skin);
+
+        if (qtd_skin1 > 0) {
+            data.labels.push(classe1);
+            data.datasets[0].data.push(qtd_skin1);
+        }
+        if (qtd_skin2 > 0) {
+            data.labels.push(classe2);
+            data.datasets[0].data.push(qtd_skin2);
+        }
+        if (qtd_skin3 > 0) {
+            data.labels.push(classe3);
+            data.datasets[0].data.push(qtd_skin3);
+        }
+        
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+
+        const myChart = new Chart(
+            document.getElementById('canvas_grafico2'),
+            config
+        );
+
+    }
+
+    pegar_tipo_classe()
 </script>
