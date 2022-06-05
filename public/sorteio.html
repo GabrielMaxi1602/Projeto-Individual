@@ -71,7 +71,11 @@
         }else{
         poupap.style.display = 'flex'
         tela_opacity.style.display = 'flex'
-        jogar()
+        bau()
+
+setTimeout(function(){
+    jogar()
+},3500);
         }
     }
     
@@ -84,6 +88,14 @@
             
     }
     
+
+    function bau(){
+        var bau = '<img style="margin-left:30%;" src="./imgs/bau-pixel-unscreen.gif" alt="bau">'
+
+        resultado_skin.innerHTML = bau
+        poupap.style.border = `none`
+                poupap.style.boxShadow = `none `
+    }
     
     function sortear() {
         var sorteio_classes = Math.floor(Math.random(1) * 100)
