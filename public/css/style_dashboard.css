@@ -123,7 +123,7 @@ header button:hover{
     color: #ff5252;
     text-transform: uppercase;
 }
-
+                    
 #span_vp{
     font-size: 20px;
     color: #ff5252;
@@ -132,3 +132,43 @@ header button:hover{
     margin-top: -1%;
 }
 
+.div1{
+    border: #000000 2px solid;
+    width: 2vw;
+    height: 2vw;
+    background-color: #ff6600;
+    color: #ff6600;
+    display: flex;
+    border-radius: 100px;
+}
+
+.div2{
+    border: #000000 2px solid;
+    display: flex;
+    width: 2vw;
+    border-radius: 100px;
+    height: 2vw;
+    background-color: #ca0fa2;
+}
+
+.div3{
+    display: flex;
+    width: 2vw;
+    border: #000000 2px solid;
+    height: 2vw;
+    background-color: #3520f3;
+    border-radius: 100px;
+}
+
+.div4{
+    display: flex;
+    width: 2vw;
+    border-radius: 100px;
+    border: #000000 2px solid;
+    height: 2vw;
+    background-color: #a3a3a3;
+}
+
+.caixa_pai p{
+    margin-left: 10%;
+}
