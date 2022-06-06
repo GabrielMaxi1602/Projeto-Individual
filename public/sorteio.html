@@ -19,14 +19,14 @@
         <a href="sorteio.html">SORTEIO</a>
         <a href="agentes.html">AGENTES</a>
         <a href="sobre.html">SOBRE</a>
-        <a href="index.html">HOME</a>
         <a href="dashboard.html" >DASHBOARD</a>
+        <a href="index.html" onclick="sair()">SAIR</a>
     </div>
 
-    <div class="caixa_infos">
-        Olá <span id="span_usuario">USUARIO</span>
+    <div class="caixa_infos" id="caixa_infoss">
+        Olá <span id="span_usuario"></span>
         <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
-        VP:<span id="span_vp">0</span>
+        VP:<span id="span_vp"></span>
     </div>
 
 </header>
@@ -57,6 +57,17 @@
 </html>
 
 <script>
+    if(sessionStorage.length == 0){
+        caixa_infoss.style.display = "none"
+        ic_usuario.style.display = "none"
+        botao_sortear.disabled = true; 
+    }
+
+        function sair(){
+        sessionStorage.clear()
+    }
+
+    
       function ir_perfil(){
         window.location.assign('perfil.html')
     }

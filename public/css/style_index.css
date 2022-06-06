@@ -137,21 +137,26 @@ header button:hover{
 
 
 .caixa_pg_agentes{
-  
+    
     width: 40%;
     
     margin-left: 8%;
 }
 
-.container_tres h1{
-    font-family: 'Anton';
-    color:white; 
-    font-size: 6em;
-    margin-left: 20%;
-    margin-bottom: 2%;
+.caixa_pg_agentes p{
+    text-align: center;
+    text-shadow: #ff5252 5px 5px 4px;
+   
 }
 
-
+.container_tres h1{
+    font-family: 'Anton';
+    color:rgb(0, 0, 0); 
+    font-size: 6em;
+    margin-left: 26%;
+    margin-bottom: 2%;
+    text-shadow: #FF5252 5px 5px 4px;
+}
 
 .container_tres p{
     font-family: '"DINNextW05-Medium"';
@@ -172,6 +177,7 @@ header button:hover{
     font-size: 6em;
     margin-bottom: 2%;
     margin-left: 17.5%;
+    text-shadow: #FF5252 5px 5px 4px;
 }
 
 .caixa_sorteio h2{
@@ -180,6 +186,7 @@ header button:hover{
     font-size: 3em;
     margin-left: 15.5%;
     margin-bottom: 3.5%;
+    text-shadow: #FF5252 3px 3px 2px;
 }
 
 .caixa_sorteio p{

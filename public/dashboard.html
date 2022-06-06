@@ -19,64 +19,86 @@
             <a href="sorteio.html">SORTEIO</a>
             <a href="agentes.html">AGENTES</a>
             <a href="sobre.html">SOBRE</a>
-            <a href="index.html">HOME</a>
             <a href="dashboard.html">DASHBOARD</a>
+            <a href="index.html" onclick="sair()">SAIR</a>
         </div>
 
-        <div class="caixa_infos">
-            Olá <span id="span_usuario">USUARIO</span>
+        <div class="caixa_infos" id="caixa_inf">
+            Olá <span id="span_usuario"></span>
             <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
-            VP:<span id="span_vp">0</span>
+            VP:<span id="span_vp"></span>
         </div>
 
     </header>
 
-    <div style="font-size: 40px; color: white; font-family: anton; margin-left: 10%; height: 10vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around; text-shadow: black 4px 4px 4px;">
-    <div style="margin-left: 2%;">Quantidade de Armas</div>
-    <div style="margin-left: 12%;">Quantidade de Classes</div>
+    <div
+        style="font-size: 40px; color: white; font-family: anton; margin-left: 10%; height: 10vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around; text-shadow: black 4px 4px 4px;">
+        <div style="margin-left: 2%;">Quantidade de Armas</div>
+        <div style="margin-left: 12%;">Quantidade de Classes</div>
     </div>
 
-    <div style=" margin-left: 10%; height: 40vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around;">
+    <div
+        style=" margin-left: 10%; height: 40vh;width:80vw;display: flex; flex-direction: row; justify-content: space-around;">
 
-        <div style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589);">
+        <div
+            style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589);">
             <canvas id="canvas_grafico"></canvas>
         </div>
-        <div style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589); margin-left: 10%;">
+        <div
+            style="box-shadow: white 2px 2px 8px 2px; width: 103%;height: 110%; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589); margin-left: 10%;">
             <canvas id="canvas_grafico2"></canvas>
         </div>
-        
+
     </div>
-     <span style="top: 19%;left: 49.8%; border-radius:10px; position: absolute; height: 50vh; width: 0.5%; background-color:#ff5252;"></span>
+    <span
+        style="top: 19%;left: 49.8%; border-radius:10px; position: absolute; height: 50vh; width: 0.5%; background-color:#ff5252;"></span>
     <div
         style="margin-top: 5%; width: 90vw; height:1%; border-radius:10px; background-color:#ff5252; margin-left:4.4vw;">
     </div>
-    <div id="div_caixa" style="box-shadow: white 2px 2px 8px 2px; width: 50vw;height: 15vh; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589); margin-left: 25vw; margin-top: 2%; display: flex; justify-content: space-around; align-items: center;">
+    <div id="div_caixa"
+        style="box-shadow: white 2px 2px 8px 2px; width: 50vw;height: 15vh; border: 2px white solid;border-radius: 10px; background-color: rgba(255, 255, 255, 0.589); margin-left: 25vw; margin-top: 2%; display: flex; justify-content: space-around; align-items: center;">
 
-        <p style="position: absolute; font-family: DINNextW05-Bold; font-size: 45px; color: white; top: 34vw; left: 35vw; text-shadow: black 4px 4px 4px;">POSSIBILIDADE DROP</p>
+        <p
+            style="position: absolute; font-family: DINNextW05-Bold; font-size: 45px; color: white; top: 34vw; left: 35vw; text-shadow: black 4px 4px 4px;">
+            POSSIBILIDADE DROP</p>
         <div style="display: flex; align-items:center;">
-        <div class="div1"></div> <p style="color: #ff6600;margin-left: 4%; font-weight: bold;">LENDÁRIA:2%</p>
-    </div>
-    <div style="display: flex; align-items:center;">
-        <div class="div2"></div> <p style="color: #ca0fa2;margin-left: 4%; font-weight: bold;">ÉPICA:20%</p>
-    </div>
-    <div style="display: flex; align-items:center;">
-        <div class="div3"></div><p style="color: #3520f3;margin-left: 4%; font-weight: bold;">RARA:28%</p>
-    </div>
-    <div style="display: flex; align-items:center;">
-        <div class="div4"></div> <p style="color:black; margin-left: 4%; font-weight: bold;">NORMAL:50%</p>
-    </div>
+            <div class="div1"></div>
+            <p style="color: #ff6600;margin-left: 4%; font-weight: bold;">LENDÁRIA:2%</p>
+        </div>
+        <div style="display: flex; align-items:center;">
+            <div class="div2"></div>
+            <p style="color: #ca0fa2;margin-left: 4%; font-weight: bold;">ÉPICA:20%</p>
+        </div>
+        <div style="display: flex; align-items:center;">
+            <div class="div3"></div>
+            <p style="color: #3520f3;margin-left: 4%; font-weight: bold;">RARA:28%</p>
+        </div>
+        <div style="display: flex; align-items:center;">
+            <div class="div4"></div>
+            <p style="color:black; margin-left: 4%; font-weight: bold;">NORMAL:50%</p>
+        </div>
     </div>
 </body>
 
 </html>
 
 <script>
-      function ir_perfil(){
+    if (sessionStorage.length == 0) {
+        caixa_inf.style.display = "none"
+        ic_usuario.style.display = "none"
+        
+    }
+
+    function sair() {
+        sessionStorage.clear()
+    }
+
+    function ir_perfil() {
         window.location.assign('perfil.html')
     }
 
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    span_vp.innerHTML = sessionStorage.VP
+    span_vp.innerHTML = sessionStorage.VP;
     var qtd_arma = 0
     var nome_arma = ""
     var qtd_arma1 = 0
@@ -149,19 +171,24 @@
             datasets: [{
                 data: [],
                 backgroundColor: [
-                '#ff0000',
-                '#850fca',
-                '#1900ff',
-                '#ff6600',
-                '#e5ff00',
-                '#000000'
+                    '#ff0000',
+                    '#850fca',
+                    '#1900ff',
+                    '#ff6600',
+                    '#e5ff00',
+                    '#000000'
                 ],
                 hoverOffset: 4
             }]
         };
 
-        data.labels.push(nome_arma1);
-        data.datasets[0].data.push(qtd_arma1);
+        data.labels.push(nome_arma);
+        data.datasets[0].data.push(qtd_arma);
+
+        if (qtd_arma1 > 0) {
+            data.labels.push(nome_arma1);
+            data.datasets[0].data.push(qtd_arma1);
+        }
 
         if (qtd_arma2 > 0) {
             data.labels.push(nome_arma2);
@@ -179,7 +206,7 @@
             data.labels.push(nome_arma5);
             data.datasets[0].data.push(qtd_arma5);
         }
-        
+
         if (qtd_arma6 > 0) {
             data.labels.push(nome_arma6);
             data.datasets[0].data.push(qtd_arma6);
@@ -188,7 +215,7 @@
         const config = {
             type: 'doughnut',
             data: data,
-            color:'white'
+            color: 'white'
         };
 
         const myChart = new Chart(
@@ -210,7 +237,7 @@
     var classe2 = ""
     var qtd_skin3 = 0
     var classe3 = ""
-    
+
 
     function pegar_tipo_classe() {
         fetch("/avisos/pegar_tipo_classe").then(function (resposta) {
@@ -235,7 +262,7 @@
                         classe3 = resposta[3].Classe;
                     }
 
-                    
+
                     grafico2();
 
                 });
@@ -252,15 +279,15 @@
         const data = {
             labels: [],
             datasets: [{
-                color:'#ff5252',
+                color: '#ff5252',
                 data: [],
-                
+
                 backgroundColor: [
                     '#ff6600',
                     '#ca0fa2',
                     '#3520f3',
                     '#b6b6b6',
-                    
+
                 ],
                 hoverOffset: 4
             }]
@@ -281,7 +308,7 @@
             data.labels.push(classe3);
             data.datasets[0].data.push(qtd_skin3);
         }
-        
+
         const config = {
             type: 'doughnut',
             data: data,

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
 </head>
+
 <body onload="atualizarFeed()">
     <header>
         <div style="width: 1px; height:12vh;"></div>
@@ -18,8 +20,8 @@
             <a href="sorteio.html">SORTEIO</a>
             <a href="agentes.html">AGENTES</a>
             <a href="sobre.html">SOBRE</a>
-            <a href="index.html">HOME</a>
             <a href="dashboard.html">DASHBOARD</a>
+            <a href="index.html" onclick="sair()">SAIR</a>
         </div>
 
         <div class="caixa_infos">
@@ -31,40 +33,49 @@
     <h1>INVENTARIO</h1>
     <div id="div_resultado"></div>
 </body>
+
 </html>
 
 <script>
+    if (sessionStorage.length == 0) {
+        caixa_inf.style.display = "none"
+        ic_usuario.style.display = "none"
+    }
+
+    function sair() {
+        sessionStorage.clear()
+    }
+
+
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
-    var lista_skin = [
-            'url("./imgs_sorteio/faca_dragao.png")', 
-            'url("./imgs_sorteio/faca_oni.png")',
-            'url("./imgs_sorteio/operator_sentinela_L.webp")',
-            'url("./imgs_sorteio/phaton_oni_L.webp" )',
-            'url("./imgs_sorteio/phaton_treva_L.webp") ',
-            'url("./imgs_sorteio/vandal_dragao_L.png" )',
-            'url("./imgs_sorteio/ghost_trevas_E.webp")',
-            'url("./imgs_sorteio/marshal_dourada_E.webp")',
-            'url("./imgs_sorteio/pathon_glithpop_E.webp") ',
-            'url("./imgs_sorteio/operator_dourada_E.webp")',
-            'url("./imgs_sorteio/vandal_sentinela_E.webp")',
-            'url("./imgs_sorteio/ghost_oceano_R.webp")',
-            'url("./imgs_sorteio/operator_ion_R.webp")',
-            'url("./imgs_sorteio/phaton_ion_R.webp") ',
-            'url("./imgs_sorteio/sheriff_bosque_R.webp" )',
-            'url("./imgs_sorteio/sherrif_ferrugem_R.webp" )',
-            'url("./imgs_sorteio/ghost_megpunk_N.webp")',
-            'url("./imgs_sorteio/mashall_espinhos_N.webp")',
-            'url("./imgs_sorteio/phaton_reyna_N.webp") ',
-            'url("./imgs_sorteio/sheriff_sakura_N.webp" )',
-            'url("./imgs_sorteio/vandal_roxa_N.webp" )'
-        ];
+    const lista_skin = [
+        'url("./imgs_sorteio/faca_dragao.png")',
+        'url("./imgs_sorteio/faca_oni.png")',
+        'url("./imgs_sorteio/operator_sentinela_L.webp")',
+        'url("./imgs_sorteio/phaton_oni_L.webp" )',
+        'url("./imgs_sorteio/phaton_treva_L.webp") ',
+        'url("./imgs_sorteio/vandal_dragao_L.png" )',
+        'url("./imgs_sorteio/ghost_trevas_E.webp")',
+        'url("./imgs_sorteio/marshal_dourada_E.webp")',
+        'url("./imgs_sorteio/pathon_glithpop_E.webp") ',
+        'url("./imgs_sorteio/operator_dourada_E.webp")',
+        'url("./imgs_sorteio/vandal_sentinela_E.webp")',
+        'url("./imgs_sorteio/ghost_oceano_R.webp")',
+        'url("./imgs_sorteio/operator_ion_R.webp")',
+        'url("./imgs_sorteio/phaton_ion_R.webp") ',
+        'url("./imgs_sorteio/sheriff_bosque_R.webp" )',
+        'url("./imgs_sorteio/sherrif_ferrugem_R.webp" )',
+        'url("./imgs_sorteio/ghost_megpunk_N.webp")',
+        'url("./imgs_sorteio/mashall_espinhos_N.webp")',
+        'url("./imgs_sorteio/phaton_reyna_N.webp") ',
+        'url("./imgs_sorteio/sheriff_sakura_N.webp" )',
+        'url("./imgs_sorteio/vandal_roxa_N.webp" )'
+    ];
 
-     function atualizarFeed() {
-         
-         var idUsuario = sessionStorage.ID_USUARIO
+    function atualizarFeed() {
 
-         
+        var idUsuario = sessionStorage.ID_USUARIO
 
         fetch(`/usuarios/listar/${idUsuario}`).then(function (resposta) {
             if (resposta.ok) {
@@ -84,46 +95,60 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
+
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPai = document.createElement("div");
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
-                       
+
                         divPublicacao.style.backgroundImage = lista_skin[publicacao.idSkin - 1]
-                        
-                        spanID.innerHTML = "TIPO:" + publicacao.tipo ;
-                        spanNome.innerHTML = "COLEÇÃO:" + publicacao.nomeSkin ;
+
+                        spanID.innerHTML = "TIPO:" + publicacao.tipo;
+                        spanNome.innerHTML = "COLEÇÃO:" + publicacao.nomeSkin;
+
                         btnEditar.innerHTML = "Vender";
-                        
-                        
+
+
                         divPai.className = "caixaPai"
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idSkin;
+                        /* spanTitulo.id = publicacao.idSkin; */
                         spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
+                        /* spanTitulo.className = "publicacao-titulo"; */
                         divDescricao.className = "publicacao-descricao";
                         btnEditar.className = "botao"
-
                         divButtons.className = "div-buttons"
 
                         btnEditar.className = "publicacao-btn-editar"
                         btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idSkin}),deletar(${publicacao.sr})`); 
+                        btnEditar.setAttribute("onclick", `editar(${publicacao.idSkin}),deletar(${publicacao.sr})`);
 
                         divPai.appendChild(divPublicacao);
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
-                      
+
                         feed.appendChild(divPai);
+
+
+                        if (publicacao.idSkin <= 6) {
+                            
+                            divPublicacao.style.boxShadow = `#ff6600 2px 2px 60px 2px `
+                        } else if (publicacao.idSkin <= 11) {
+                            
+                            divPublicacao.style.boxShadow = `#ca0fa2 2px 2px 60px 2px `
+                        } else if (publicacao.idSkin <= 16) {
+                            
+                            divPublicacao.style.boxShadow = `#3520f3 2px 2px 60px 2px  `
+                        } else  {
+                            
+                            divPublicacao.style.boxShadow = `#b6b6b6 2px 2px 60px 2px `
+                        }
                     }
 
                 });
@@ -136,7 +161,19 @@
     }
 
     function editar(registro) {
-        var vps = Number(sessionStorage.VP) + 10
+        var vps = Number(sessionStorage.VP)
+
+
+        if (registro <= 5) {
+            vps = vps + 350
+        } else if (registro <= 10) {
+            vps = vps + 50
+        } else if (registro <= 15) {
+            vps = vps + 20
+        } else if (registro <= 20) {
+            vps = vps + 5
+        }
+
 
         fetch(`/avisos/editar/${sessionStorage.getItem("ID_USUARIO")}`, {
             method: "PUT",

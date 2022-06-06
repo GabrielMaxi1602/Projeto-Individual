@@ -21,14 +21,14 @@
             <a href="sorteio.html">SORTEIO</a>
             <a href="agentes.html">AGENTES</a>
             <a href="sobre.html">SOBRE</a>
-            <a href="index.html">HOME</a>
             <a href="dashboard.html">DASHBOARD</a>
+            <a href="index.html" onclick="sair()">SAIR</a>
         </div>
 
-        <div class="caixa_infos">
-            Olá <span id="span_usuario">USUARIO</span>
+        <div class="caixa_infos" id="caixa_infoss">
+            Olá <span id="span_usuario"></span>
             <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
-            VP:<span id="span_vp">0</span>
+            VP:<span id="span_vp"></span>
         </div>
     </header>
     <p sty>.</p>
@@ -79,14 +79,23 @@
 
         <button id="botao_exibir" onclick="exibir_agentes()">Exibir Agentes</button>
         <br>
-        <div id="prateleira_1">  </div>
+        <div id="prateleira_1"> </div>
     </div>
 </body>
 
 </html>
 
 <script>
-    function ir_perfil(){
+    if (sessionStorage.length == 0) {
+        caixa_infoss.style.display = "none"
+        ic_usuario.style.display = "none"
+    }
+
+    function sair() {
+        sessionStorage.clear()
+    }
+
+    function ir_perfil() {
         window.location.assign('perfil.html')
     }
 
@@ -192,125 +201,125 @@
             funcao_agente.className = 'funcao_agentes'
 
             if (lista_agentes[contador] == "YORU") {
-                nome_agente.innerHTML +=detalhes[0].nome + " "
+                nome_agente.innerHTML += detalhes[0].nome + " "
                 habilidade_agente.innerHTML += detalhes[0].habilidade + " "
                 funcao_agente.innerHTML += detalhes[0].funcao
                 c++
                 card.style.backgroundImage = 'url(cards/card_yoru.png)'
                 card.style.backgroundSize = "cover";
             } else if (lista_agentes[contador] == "RAZE") {
-                nome_agente.innerHTML +=detalhes[1].nome + " "
+                nome_agente.innerHTML += detalhes[1].nome + " "
                 habilidade_agente.innerHTML += detalhes[1].habilidade + " "
-                funcao_agente.innerHTML += detalhes[1].funcao 
+                funcao_agente.innerHTML += detalhes[1].funcao
                 card.style.backgroundImage = 'url(cards/card_raze.jpg)'
                 c++
             } else if (lista_agentes[contador] == "JETT") {
-                nome_agente.innerHTML +=detalhes[2].nome + " "
+                nome_agente.innerHTML += detalhes[2].nome + " "
                 habilidade_agente.innerHTML += detalhes[2].habilidade + " "
-                funcao_agente.innerHTML += detalhes[2].funcao 
+                funcao_agente.innerHTML += detalhes[2].funcao
                 card.style.backgroundImage = 'url(cards/card_jett.jpg)'
                 c++
             } else if (lista_agentes[contador] == "VIPER") {
-                nome_agente.innerHTML +=detalhes[3].nome + " "
+                nome_agente.innerHTML += detalhes[3].nome + " "
                 habilidade_agente.innerHTML += detalhes[3].habilidade + " "
-                funcao_agente.innerHTML += detalhes[3].funcao 
+                funcao_agente.innerHTML += detalhes[3].funcao
                 card.style.backgroundImage = 'url(cards/card_viper.jpg)'
                 c++
             } else if (lista_agentes[contador] == "KILLJOY") {
-                nome_agente.innerHTML +=detalhes[4].nome + " "
+                nome_agente.innerHTML += detalhes[4].nome + " "
                 habilidade_agente.innerHTML += detalhes[4].habilidade + " "
-                funcao_agente.innerHTML += detalhes[4].funcao 
+                funcao_agente.innerHTML += detalhes[4].funcao
                 card.style.backgroundImage = 'url(cards/card_killjoy.jpg)'
                 c++
             } else if (lista_agentes[contador] == "CHAMBER") {
-                nome_agente.innerHTML +=detalhes[5].nome + " "
+                nome_agente.innerHTML += detalhes[5].nome + " "
                 habilidade_agente.innerHTML += detalhes[5].habilidade + " "
-                funcao_agente.innerHTML += detalhes[5].funcao 
+                funcao_agente.innerHTML += detalhes[5].funcao
                 card.style.backgroundImage = 'url(cards/card_chamber.png)'
                 c++
             } else if (lista_agentes[contador] == "OMEN") {
-                nome_agente.innerHTML +=detalhes[6].nome + " "
+                nome_agente.innerHTML += detalhes[6].nome + " "
                 habilidade_agente.innerHTML += detalhes[6].habilidade + " "
-                funcao_agente.innerHTML += detalhes[6].funcao 
+                funcao_agente.innerHTML += detalhes[6].funcao
                 card.style.backgroundImage = 'url(cards/card_omen.jpg)'
                 c++
             } else if (lista_agentes[contador] == "SOVA") {
-                nome_agente.innerHTML +=detalhes[7].nome + " "
+                nome_agente.innerHTML += detalhes[7].nome + " "
                 habilidade_agente.innerHTML += detalhes[7].habilidade + " "
-                funcao_agente.innerHTML += detalhes[7].funcao 
+                funcao_agente.innerHTML += detalhes[7].funcao
                 card.style.backgroundImage = 'url(cards/card_sova.jpg)'
                 c++
             } else if (lista_agentes[contador] == "NEON") {
-                nome_agente.innerHTML +=detalhes[8].nome + " "
+                nome_agente.innerHTML += detalhes[8].nome + " "
                 habilidade_agente.innerHTML += detalhes[8].habilidade + " "
-                funcao_agente.innerHTML += detalhes[8].funcao 
+                funcao_agente.innerHTML += detalhes[8].funcao
                 card.style.backgroundImage = 'url(cards/card_neon.png)'
                 c++
             } else if (lista_agentes[contador] == "REYNA") {
-                nome_agente.innerHTML +=detalhes[9].nome + " "
+                nome_agente.innerHTML += detalhes[9].nome + " "
                 habilidade_agente.innerHTML += detalhes[9].habilidade + " "
-                funcao_agente.innerHTML += detalhes[9].funcao 
+                funcao_agente.innerHTML += detalhes[9].funcao
                 card.style.backgroundImage = 'url(cards/card_reyna.jpg)'
                 c++
             } else if (lista_agentes[contador] == "FADE") {
-                nome_agente.innerHTML +=detalhes[10].nome + " "
+                nome_agente.innerHTML += detalhes[10].nome + " "
                 habilidade_agente.innerHTML += detalhes[10].habilidade + " "
-                funcao_agente.innerHTML += detalhes[10].funcao 
+                funcao_agente.innerHTML += detalhes[10].funcao
                 card.style.backgroundImage = 'url(cards/card_fade.png)'
                 c++
             } else if (lista_agentes[contador] == "CYPHER") {
-                nome_agente.innerHTML +=detalhes[11].nome + " "
+                nome_agente.innerHTML += detalhes[11].nome + " "
                 habilidade_agente.innerHTML += detalhes[11].habilidade + " "
-                funcao_agente.innerHTML += detalhes[11].funcao 
+                funcao_agente.innerHTML += detalhes[11].funcao
                 card.style.backgroundImage = 'url(cards/card_cypher.jpg)'
                 c++
             } else if (lista_agentes[contador] == "SKYE") {
-                nome_agente.innerHTML +=detalhes[12].nome + " "
+                nome_agente.innerHTML += detalhes[12].nome + " "
                 habilidade_agente.innerHTML += detalhes[12].habilidade + " "
-                funcao_agente.innerHTML += detalhes[12].funcao 
+                funcao_agente.innerHTML += detalhes[12].funcao
                 card.style.backgroundImage = 'url(cards/card_skye.png)'
                 c++
             } else if (lista_agentes[contador] == "SAGE") {
-                nome_agente.innerHTML +=detalhes[13].nome + " "
+                nome_agente.innerHTML += detalhes[13].nome + " "
                 habilidade_agente.innerHTML += detalhes[13].habilidade + " "
-                funcao_agente.innerHTML += detalhes[13].funcao 
+                funcao_agente.innerHTML += detalhes[13].funcao
                 card.style.backgroundImage = 'url(cards/card_sage.jpg)'
                 c++
             } else if (lista_agentes[contador] == "ASTRA") {
-                nome_agente.innerHTML +=detalhes[14].nome + " "
+                nome_agente.innerHTML += detalhes[14].nome + " "
                 habilidade_agente.innerHTML += detalhes[14].habilidade + " "
-                funcao_agente.innerHTML += detalhes[14].funcao 
+                funcao_agente.innerHTML += detalhes[14].funcao
                 card.style.backgroundImage = 'url(cards/card_astra.jpg)'
                 c++
             } else if (lista_agentes[contador] == "BRIMSTONE") {
-                nome_agente.innerHTML +=detalhes[15].nome + " "
+                nome_agente.innerHTML += detalhes[15].nome + " "
                 habilidade_agente.innerHTML += detalhes[15].habilidade + " "
-                funcao_agente.innerHTML += detalhes[15].funcao 
+                funcao_agente.innerHTML += detalhes[15].funcao
                 card.style.backgroundImage = 'url(cards/card_brimstone.jpg)'
                 c++
             } else if (lista_agentes[contador] == "KAY/O" || lista_agentes[contador] == "KAYO") {
-                nome_agente.innerHTML +=detalhes[16].nome + " "
+                nome_agente.innerHTML += detalhes[16].nome + " "
                 habilidade_agente.innerHTML += detalhes[16].habilidade + " "
-                funcao_agente.innerHTML += detalhes[16].funcao 
+                funcao_agente.innerHTML += detalhes[16].funcao
                 card.style.backgroundImage = 'url(cards/card_kayo.png)'
                 c++
             } else if (lista_agentes[contador] == "BREACH") {
-                nome_agente.innerHTML +=detalhes[17].nome + " "
+                nome_agente.innerHTML += detalhes[17].nome + " "
                 habilidade_agente.innerHTML += detalhes[17].habilidade + " "
-                funcao_agente.innerHTML += detalhes[17].funcao 
+                funcao_agente.innerHTML += detalhes[17].funcao
                 card.style.backgroundImage = 'url(cards/card_breach.jpg)'
                 c++
             } else if (lista_agentes[contador] == "PHOENIX") {
-                nome_agente.innerHTML +=detalhes[18].nome + " "
+                nome_agente.innerHTML += detalhes[18].nome + " "
                 habilidade_agente.innerHTML += detalhes[18].habilidade + " "
-                funcao_agente.innerHTML += detalhes[18].funcao 
+                funcao_agente.innerHTML += detalhes[18].funcao
                 card.style.backgroundImage = 'url(cards/card_phoenix.jpg)'
                 c++
             }
 
-            }
-
-
         }
+
+
+    }
 
 </script>

@@ -137,7 +137,7 @@ h1{
     text-shadow: #00ff15 2px 2px 2px;
 }
 
-.publicacao-titulo{
+.publicacao-titulo{ 
     color: #ff0000;
     font-weight: bold;
     text-transform: uppercase;
@@ -151,10 +151,10 @@ h1{
     width: 30%;
     height: 100%;
     border: 3px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #0000009d;
     display: flex;
-    box-shadow: white 1px 1px 3px 1px, white -1px 1px 3px 1px;
+    box-shadow: white 2px 1px 3px 1px, white -1px 1px 3px 1px;
 }
 
 .publicacao{
@@ -168,6 +168,8 @@ h1{
     background-position:center center;
     color: #ffffff;
     justify-content: flex-end;
+    border-radius: 10px;
+    box-shadow: white 1px 1px 3px 1px, white -1px 1px 3px 1px;
 }
 
 /* .publicacao-titulo{
@@ -213,4 +215,8 @@ span{
     color: #FF5252;
     margin-bottom: 1%;
     margin-left: 1%;
+}
+
+.box{
+    
 }
