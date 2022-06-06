@@ -14,6 +14,7 @@
 
 <body>
     <header>
+        <img id="ic_usuario" onclick="ir_perfil()" src="./imgs/in.png" alt="">
         <div style="width: 1px; height:12vh;"></div>
         <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
         <div class="nav_bar">
@@ -85,6 +86,10 @@
 </html>
 
 <script>
+    function ir_perfil(){
+        window.location.assign('perfil.html')
+    }
+
     let = posicao = Number(0)
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP

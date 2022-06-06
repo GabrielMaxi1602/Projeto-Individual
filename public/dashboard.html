@@ -13,6 +13,7 @@
 
 <body>
     <header>
+        <img id="ic_usuario" src="./imgs/in.png" onclick="ir_perfil()" alt="">
         <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
         <div class="nav_bar">
             <a href="sorteio.html">SORTEIO</a>
@@ -70,6 +71,10 @@
 </html>
 
 <script>
+      function ir_perfil(){
+        window.location.assign('perfil.html')
+    }
+
     span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     span_vp.innerHTML = sessionStorage.VP
     var qtd_arma = 0

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERFIL</title>
+    <link rel="stylesheet" href="css/style_perfil.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
+</head>
+<body onload="atualizarFeed()">
+    <header>
+        <div style="width: 1px; height:12vh;"></div>
+        <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
+        <div class="nav_bar">
+            <a href="sorteio.html">SORTEIO</a>
+            <a href="agentes.html">AGENTES</a>
+            <a href="sobre.html">SOBRE</a>
+            <a href="index.html">HOME</a>
+            <a href="dashboard.html">DASHBOARD</a>
+        </div>
+
+        <div class="caixa_infos">
+            Olá <span id="span_usuario">USUARIO</span>
+            <p style="font-weight: bold; font-size:30px; margin-top:-4%;">|</p>
+            VP:<span id="span_vp">0</span>
+        </div>
+    </header>
+    <h1>INVENTARIO</h1>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    span_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    span_vp.innerHTML = sessionStorage.VP
+    var lista_skin = [
+            'url("./imgs_sorteio/faca_dragao.png")', 
+            'url("./imgs_sorteio/faca_oni.png")',
+            'url("./imgs_sorteio/operator_sentinela_L.webp")',
+            'url("./imgs_sorteio/phaton_oni_L.webp" )',
+            'url("./imgs_sorteio/phaton_treva_L.webp") ',
+            'url("./imgs_sorteio/vandal_dragao_L.png" )',
+            'url("./imgs_sorteio/ghost_trevas_E.webp")',
+            'url("./imgs_sorteio/marshal_dourada_E.webp")',
+            'url("./imgs_sorteio/pathon_glithpop_E.webp") ',
+            'url("./imgs_sorteio/operator_dourada_E.webp")',
+            'url("./imgs_sorteio/vandal_sentinela_E.webp")',
+            'url("./imgs_sorteio/ghost_oceano_R.webp")',
+            'url("./imgs_sorteio/operator_ion_R.webp")',
+            'url("./imgs_sorteio/phaton_ion_R.webp") ',
+            'url("./imgs_sorteio/sheriff_bosque_R.webp" )',
+            'url("./imgs_sorteio/sherrif_ferrugem_R.webp" )',
+            'url("./imgs_sorteio/ghost_megpunk_N.webp")',
+            'url("./imgs_sorteio/mashall_espinhos_N.webp")',
+            'url("./imgs_sorteio/phaton_reyna_N.webp") ',
+            'url("./imgs_sorteio/sheriff_sakura_N.webp" )',
+            'url("./imgs_sorteio/vandal_roxa_N.webp" )'
+        ];
+
+     function atualizarFeed() {
+         
+         var idUsuario = sessionStorage.ID_USUARIO
+
+         
+
+        fetch(`/usuarios/listar/${idUsuario}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("div_resultado");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("div_resultado");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPai = document.createElement("div");
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                        var spanTitulo = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var divDescricao = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        var btnEditar = document.createElement("button");
+                       
+                        divPublicacao.style.backgroundImage = lista_skin[publicacao.idSkin - 1]
+                        
+                        spanID.innerHTML = "TIPO:" + publicacao.tipo ;
+                        spanNome.innerHTML = "COLEÇÃO:" + publicacao.nomeSkin ;
+                        btnEditar.innerHTML = "Vender";
+                        
+                        
+                        divPai.className = "caixaPai"
+                        divPublicacao.className = "publicacao";
+                        spanTitulo.id = "inputNumero" + publicacao.idSkin;
+                        spanNome.className = "publicacao-nome";
+                        spanTitulo.className = "publicacao-titulo";
+                        divDescricao.className = "publicacao-descricao";
+                        btnEditar.className = "botao"
+
+                        divButtons.className = "div-buttons"
+
+                        btnEditar.className = "publicacao-btn-editar"
+                        btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        btnEditar.setAttribute("onclick", `editar(${publicacao.idSkin}),deletar(${publicacao.sr})`); 
+
+                        divPai.appendChild(divPublicacao);
+                        divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divButtons);
+                        divButtons.appendChild(btnEditar);
+                      
+                        feed.appendChild(divPai);
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function editar(registro) {
+        var vps = Number(sessionStorage.VP) + 10
+
+        fetch(`/avisos/editar/${sessionStorage.getItem("ID_USUARIO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                vp: vps
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                sessionStorage.VP = vps;
+                window.location.reload()
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a venda! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function deletar(registro) {
+        fetch(`/avisos/deletar/${registro}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Venda realizada com sucesso ");
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a venda! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+</script>

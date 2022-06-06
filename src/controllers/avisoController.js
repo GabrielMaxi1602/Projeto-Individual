@@ -94,10 +94,10 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var vp = req.body.vp;
+    var idUsuario = req.params.idUsuario;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(vp, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -114,9 +114,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+    var registro = req.params.registro;
 
-    avisoModel.deletar(idAviso)
+    avisoModel.deletar(registro)
         .then(
             function (resultado) {
                 res.json(resultado);

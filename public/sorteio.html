@@ -9,11 +9,12 @@
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/style_sorteio.css">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
+    href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Kanit:700|Noto+Sans+HK:900|Noto+Sans+JP:700|Noto+Sans+SC:700|Noto+Sans+TC:700|Oswald:700&display=swap&subset=chinese-hongkong,chinese-simplified,chinese-traditional,cyrillic,japanese,korean,thai,vietnamese">
 </head>
 <div id="tela_opacity"></div>
 <header>
-    <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
+    <img id="ic_usuario" src="./imgs/in.png" alt="" onclick="ir_perfil()">
+    <img id="logo" src="./imgs/icons8-valorant-48.png"  alt="logo_valorant">
     <div class="nav_bar">
         <a href="sorteio.html">SORTEIO</a>
         <a href="agentes.html">AGENTES</a>
@@ -56,6 +57,10 @@
 </html>
 
 <script>
+      function ir_perfil(){
+        window.location.assign('perfil.html')
+    }
+
 
     function ir_login() {
         window.location.assign("login.html")
@@ -305,7 +310,7 @@ setTimeout(function(){
 
 
     function sorteio_usuario(resultado) {
-
+        var fk_usuario = sessionStorage.ID_USUARIO
         var skin = resultado
     fetch("/usuarios/sorteio_usuario", {
                 method: "POST",
@@ -316,7 +321,8 @@ setTimeout(function(){
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 /* fk_usuarioServer: sessionStorage.ID_USUARIO, */
-                fk_skinServer: skin
+                fk_skinServer: skin,
+                fk_usuarioServer: fk_usuario
                  
             })
         }).then(function (resposta) {

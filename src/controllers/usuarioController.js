@@ -147,16 +147,16 @@ function jogar(req, res) {
 
 
 function sorteio_usuario(req, res) {
-   /*  var fk_usuario = req.body.fk_usuarioServer; */
+     var fk_usuario = req.body.fk_usuarioServer; 
     var fk_skin = req.body.fk_skinServer;
 
     if (fk_skin == undefined) {
         res.status(400).send("Seu idUsuario está undefined!");
-    }/*  else if (fk_skin == undefined) {
+    }  else if (fk_usuario == undefined) {
         res.status(400).send("Sua skin está indefinida!");
-    } */  else {
+    }   else {
         
-        usuarioModel.sorteio_usuario(/* fk_usuario */ fk_skin)
+        usuarioModel.sorteio_usuario( fk_usuario , fk_skin)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -172,11 +172,38 @@ function sorteio_usuario(req, res) {
 
 }
 
+function listarPorUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.listarPorUsuario(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
     jogar,
-    sorteio_usuario
+    sorteio_usuario,
+    listarPorUsuario
 }

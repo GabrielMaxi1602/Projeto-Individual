@@ -261,3 +261,12 @@ header button:hover{
     margin-left: -4%;
     margin-top: -1%;
 }
+
+#ic_usuario{
+    width: 2.5vw;
+    height: 5vh;
+    position: absolute;
+    left: 77.5%;
+    top: 3.9vh;
+    cursor: pointer;
+}

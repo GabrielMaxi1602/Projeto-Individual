@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+        <img id="ic_usuario" src="./imgs/in.png" onclick="ir_perfil()" alt="">
         <div style="width: 1px; height:12vh;"></div>
         <img id="logo" src="./imgs/icons8-valorant-48.png" alt="logo_valorant">
         <div class="nav_bar">
@@ -52,6 +53,10 @@
     </html>
 
     <script>
+          function ir_perfil(){
+        window.location.assign('perfil.html')
+    }
+
         function ir_login(){
         window.location.assign("login.html") 
     }

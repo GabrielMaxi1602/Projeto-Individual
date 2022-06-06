@@ -7,6 +7,14 @@
     transition: 1s;
 } 
 
+#ic_usuario{
+    width: 2.5vw;
+    height: 5vh;
+    position: absolute;
+    left: 77.5%;
+    top: 3.9vh;
+}
+
 .caixa_login{
     background-image: url();
     background-size: cover;
